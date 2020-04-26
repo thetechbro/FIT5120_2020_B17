@@ -1,0 +1,162 @@
+<mat-toolbar class="sticky-toolbar">
+  <mat-toolbar-row class="app-header">
+    <span class="display-flex">
+      <button (click)="dialogRef.close()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="inline-flex-center">Back
+      </span>
+    </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="2" [style.padding.px]="0">
+    <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="1" [style.padding.px]="0">
+    <mat-divider [style.width.%]="100"></mat-divider>
+  </mat-toolbar-row>
+</mat-toolbar>
+<section class="container-margin-main">
+  <div class='spacer-height'></div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Comparing Now</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+
+  <div class="card-grid">
+    <ng-container *ngFor="let item of data.compareItems">
+      <div class="card-border">
+        <div class="card-image">
+          <img src="../assets/home1.png" alt="HOME" srcset="">
+        </div>
+        <div class="card-content">
+          <div class="mat-title">{{item.SERVICE_NAME}}</div>
+          <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
+          </div>
+          <div class="mat-body-2">
+            Zipcode: {{item.STREET_PCODE}}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class='spacer-height'></div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Facilites</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <div class="round-border small-padding">
+    <div class="mat-title">{{'COMMGOVT SUBSIDISED' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
+        {{item?.COMMGOVT_SUBSIDISED || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'STREET ST. ADDRESS' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_ST_ADDRESS || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'STREET SUBURB' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_SUBURB || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'STREET PCODE' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_PCODE || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'STREET STATE' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_STATE || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'BUS ST. ADDRESS' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.BUS_ST_ADDRESS || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'BUS PCODE' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.BUS_PCODE || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'MAIN PH NUM' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.MAIN_PH_NUM || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'MAIN EMAIL ADDRESS' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.MAIN_EMAIL_ADDR || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'WEBSITE' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.WEBSITE || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.ACCREDITATION || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
+        {{item?.ACCREDITATION_PERIOD || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.CERTIFICATION || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'Provider Name' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item['Provider Name'] || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'Organisation Type' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
+        {{item['Organisation Type'] || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'Latitude' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.Latitude|| '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'Longitude' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.Longitude|| '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'SERVICE_TYPE' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.SERVICE_TYPE|| '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'PARTICULAR_NEED_SERVICES' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
+        {{item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
+  </div>
+
+</section>
