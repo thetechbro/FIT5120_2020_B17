@@ -82,7 +82,7 @@
     <div class='spacer-height'></div>
     <ng-container *ngFor="let item of compareItems">
       <div class="round-border small-padding flex-space-between">
-        <div class="mat-body-1 align-center">{{item.SERVICE_NAME}}</div>
+        <div class="mat-body-1 align-center">{{item.AGED_CARE_NAME}}</div>
         <button (click)="removeFromCompare(item.SERVICE_ID)" mat-icon-button>
           <mat-icon>close</mat-icon>
         </button>
@@ -105,7 +105,7 @@
           <img src="../assets/home1.png" alt="HOME" srcset="">
         </div>
         <div class="card-content">
-          <div class="mat-title">{{item.SERVICE_NAME}}</div>
+          <div class="mat-title">{{item.AGED_CARE_NAME}}</div>
           <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
           </div>
           <div class="mat-body-2">

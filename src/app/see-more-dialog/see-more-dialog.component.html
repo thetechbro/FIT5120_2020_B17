@@ -18,7 +18,7 @@
 <section class="container-margin-main">
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
-  <div class="mat-title">{{data.item?.SERVICE_NAME}}</div>
+  <div class="mat-title">{{data.item?.AGED_CARE_NAME}}</div>
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
@@ -27,7 +27,7 @@
       <img src="../assets/home1.png" alt="HOME" srcset="">
     </div>
     <div class="card-content">
-      <div class="mat-title">{{data.item.SERVICE_NAME}}</div>
+      <div class="mat-title">{{data.item.AGED_CARE_NAME}}</div>
       <div class="mat-body-1">ACCREDATION PERIOD:
         {{data.item.ACCREDITATION_PERIOD ? data.item.ACCREDITATION_PERIOD : '-'}}
       </div>
@@ -81,6 +81,15 @@
     <div class="mat-title">{{'WEBSITE' | titlecase}}</div>
     <div class="mat-body-2">{{data.item?.WEBSITE || '-'}}</div>
     <div class='spacer-height'></div>
+    <div class="mat-title">{{'COMMON AREA DESC' | titlecase}}</div>
+    <div class="mat-body-2">{{data.item?.COMMON_AREA_DESC || '-'}}</div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'SPECIFIC FEATURES' | titlecase}}</div>
+    <div class="mat-body-2">{{data.item?.SPECIFIC_FEATURES || '-'}}</div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'ADDITIONAL CARE INCL' | titlecase}}</div>
+    <div class="mat-body-2">{{data.item?.ADDITIONAL_CARE_INCL || '-'}}</div>
+    <div class='spacer-height'></div>
     <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
     <div class="mat-body-2">{{data.item?.ACCREDITATION || '-'}}</div>
     <div class='spacer-height'></div>
@@ -108,5 +117,51 @@
     <div class="mat-title">{{'PARTICULAR_NEED_SERVICES' | titlecase}}</div>
     <div class="mat-body-2">{{data.item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
     <div class='spacer-height'></div>
+  </div>
+
+  <div class='spacer-height'></div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Room Detail</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <div class="round-border small-padding">
+    <div *ngFor="let room of data.item?.roomDetail" class="mat-body-2 content-padding">
+      <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'ROOM TYPE' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.ROOM_TYPE || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'ROOM DESC' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'MAX RAD' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.MAX_RAD || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'PAYMENT OPTIONS' | titlecase}}</div>
+      <div class="card-grid">
+        <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
+      </div>
+      <div class='spacer-height'></div>
+      <mat-divider></mat-divider>
+      <div class='spacer-height'></div>
+    </div>
+    <ng-container *ngIf="data.item?.roomDetail.length == 0">
+      <div class="mat-body-2">No room detail available.</div>
+    </ng-container>
   </div>
 </section>

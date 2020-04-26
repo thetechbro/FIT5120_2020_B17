@@ -187,17 +187,17 @@ export class SearchDialogComponent implements OnInit {
     const zipcode = this.data.zipcode;
     const type = this.data.organizationtype;
     if (zipcode && zipcode !== 0 && type && type !== 'All') {
-      this.matchedItems$ = this.db.collection('goldenstick', ref =>
+      this.matchedItems$ = this.db.collection('goldenstick_data', ref =>
         ref.where('STREET_PCODE', '==', zipcode.toString()).where('Organisation Type', '==', type)
-          .orderBy('SERVICE_NAME', 'asc')).valueChanges();
+          .orderBy('AGED_CARE_NAME', 'asc')).valueChanges();
     } else if (zipcode && zipcode !== 0) {
-      this.matchedItems$ = this.db.collection('goldenstick', ref =>
-        ref.where('STREET_PCODE', '==', zipcode.toString()).orderBy('SERVICE_NAME', 'asc')).valueChanges();
+      this.matchedItems$ = this.db.collection('goldenstick_data', ref =>
+        ref.where('STREET_PCODE', '==', zipcode.toString()).orderBy('AGED_CARE_NAME', 'asc')).valueChanges();
     } else if (type && type !== 'All') {
-      this.matchedItems$ = this.db.collection('goldenstick', ref =>
-        ref.where('Organisation Type', '==', type).orderBy('SERVICE_NAME', 'asc')).valueChanges();
+      this.matchedItems$ = this.db.collection('goldenstick_data', ref =>
+        ref.where('Organisation Type', '==', type).orderBy('AGED_CARE_NAME', 'asc')).valueChanges();
     } else {
-      this.matchedItems$ = this.db.collection('goldenstick', ref => ref.orderBy('SERVICE_NAME', 'asc')).valueChanges();
+      this.matchedItems$ = this.db.collection('goldenstick_data', ref => ref.orderBy('AGED_CARE_NAME', 'asc')).valueChanges();
     }
     this.matchedItems$.subscribe(matchedItems => {
       if (matchedItems) {
@@ -210,7 +210,7 @@ export class SearchDialogComponent implements OnInit {
 
   /**
    * openSearchMore will open See more dialog
-   * @param item
+   * @param item item to get more detail
    */
   openSearchMore(item) {
     this.dialog.open(SeeMoreDialogComponent, {

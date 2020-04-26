@@ -30,7 +30,7 @@
           <img src="../assets/home1.png" alt="HOME" srcset="">
         </div>
         <div class="card-content">
-          <div class="mat-title">{{item.SERVICE_NAME}}</div>
+          <div class="mat-title">{{item.AGED_CARE_NAME}}</div>
           <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
           </div>
           <div class="mat-body-2">
@@ -106,6 +106,24 @@
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.WEBSITE || '-'}}</div>
     </div>
     <div class='spacer-height'></div>
+    <div class="mat-title">{{'COMMON AREA DESC' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.COMMON_AREA_DESC || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'SPECIFIC FEATURES' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.SPECIFIC_FEATURES || '-'}}
+      </div>
+    </div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">{{'ADDITIONAL CARE INCL' | titlecase}}</div>
+    <div class="card-grid">
+      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
+        {{item?.ADDITIONAL_CARE_INCL || '-'}}</div>
+    </div>
+    <div class='spacer-height'></div>
     <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.ACCREDITATION || '-'}}
@@ -159,4 +177,89 @@
     <div class='spacer-height'></div>
   </div>
 
+
+  <div class='spacer-height'></div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Room Detail</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <div class="round-border small-padding">
+    <div class="card-grid">
+      <section>
+        <div *ngFor="let room of data.compareItems[0].roomDetail" class="round-border mat-body-2 content-padding">
+          <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM TYPE' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_TYPE || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM DESC' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'MAX RAD' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.MAX_RAD || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'PAYMENT OPTIONS' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <mat-divider></mat-divider>
+          <div class='spacer-height'></div>
+        </div>
+      </section>
+      <section>
+        <div *ngFor="let room of data.compareItems[1].roomDetail" class="round-border mat-body-2 content-padding">
+          <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM TYPE' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_TYPE || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM DESC' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'MAX RAD' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.MAX_RAD || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <div class="mat-title">{{'PAYMENT OPTIONS' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
+          <mat-divider></mat-divider>
+          <div class='spacer-height'></div>
+        </div>
+      </section>
+    </div>
+    <div class='spacer-height'>
+    </div>
+  </div>
 </section>
