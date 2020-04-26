@@ -38,7 +38,7 @@ export const uploadData = functions.runWith(runtimeOpts).https.onRequest((reques
 });
 
 /**
- * uploadRoomData is a HTTP function which will upload Roome Details.csv data to google firestore
+ * uploadRoomData is a HTTP function which will upload RoomDetails.csv data to google firestore
  */
 export const uploadRoomData = functions.runWith(runtimeOpts).https.onRequest((request, res) => {
   let dataArr: any[] = [];
