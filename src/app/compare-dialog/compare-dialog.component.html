@@ -187,7 +187,7 @@
   <div class="round-border small-padding">
     <div class="card-grid">
       <section>
-        <div *ngFor="let room of data.compareItems[0].roomDetail" class="round-border mat-body-2 content-padding">
+        <div *ngFor="let room of data.compareItems[0].roomDetail" class="round-border small-margin content-padding">
           <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
           <div class="card-grid">
             <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
@@ -218,12 +218,11 @@
             <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
           </div>
           <div class='spacer-height'></div>
-          <mat-divider></mat-divider>
-          <div class='spacer-height'></div>
         </div>
+        <div class='spacer-height'></div>
       </section>
       <section>
-        <div *ngFor="let room of data.compareItems[1].roomDetail" class="round-border mat-body-2 content-padding">
+        <div *ngFor="let room of data.compareItems[1].roomDetail" class="round-border content-padding small-margin">
           <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
           <div class="card-grid">
             <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
@@ -254,9 +253,8 @@
             <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
           </div>
           <div class='spacer-height'></div>
-          <mat-divider></mat-divider>
-          <div class='spacer-height'></div>
         </div>
+        <div class='spacer-height'></div>
       </section>
     </div>
     <div class='spacer-height'>
