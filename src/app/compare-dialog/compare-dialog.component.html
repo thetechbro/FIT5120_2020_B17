@@ -187,7 +187,7 @@
   <div class="round-border small-padding">
     <div class="card-grid">
       <section>
-        <div *ngFor="let room of data.compareItems[0].roomDetail" class="round-border small-margin content-padding">
+        <div *ngFor="let room of data.compareItems[0].roomDetail" class="round-border content-padding small-margin">
           <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
           <div class="card-grid">
             <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
