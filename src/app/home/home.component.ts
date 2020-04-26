@@ -28,6 +28,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * getHome will open search dialog with selected zipcode and type
+   * @param zipcode - zipcode
+   * @param type - organization type
+   */
   getHome(zipcode: number, type: string) {
     if (!zipcode && !type) {
       this.searchPincodeForm.setErrors({

@@ -208,6 +208,9 @@ export class SearchDialogComponent implements OnInit {
     'All', '3 Years', '1 Year'
   ];
 
+  /**
+   * ngOnInit invoke on load and load search results based on input passed from home component.
+   */
   ngOnInit(): void {
     this.loading$ = of(true);
     const zipcode = this.data.zipcode;
@@ -234,6 +237,10 @@ export class SearchDialogComponent implements OnInit {
     });
   }
 
+  /**
+   * openSearchMore will open See more dialog
+   * @param item
+   */
   openSearchMore(item) {
     this.dialog.open(SeeMoreDialogComponent, {
       width: '100%',
@@ -313,14 +320,26 @@ export class SearchDialogComponent implements OnInit {
     this.matchedItems = this.originalData;
   }
 
+  /**
+   * addToCompare will add item for comparision
+   * @param item
+   */
   addToCompare(item) {
     this.compareItems.push(item);
   }
 
+  /**
+   * removeFromCompare will remove item from comparision
+   * @param serviceId
+   */
   removeFromCompare(serviceId: string) {
     this.compareItems = this.compareItems.filter(item => item.SERVICE_ID !== serviceId);
   }
 
+  /**
+   * alreadyInCompare will verify exsisting item has already been added to comparision or not
+   * @param serviceId
+   */
   alreadyInCompare(serviceId: string) {
     return this.compareItems.filter(item => item.SERVICE_ID === serviceId).filter(a => !!a).length > 0;
   }
