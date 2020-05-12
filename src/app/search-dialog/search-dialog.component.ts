@@ -257,7 +257,7 @@ export class SearchDialogComponent implements OnInit {
   }
 
   /**
-   * scrollTop is for scrooling to top
+   * scrollTop is for scroling to top
    */
   scrollTop() {
     document.querySelector('#mat-dialog-0').scrollTo(0, 0);
