@@ -18,4 +18,10 @@ export class CompareDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * scrollTop is for scroling to top
+   */
+  scrollTop() {
+    document.querySelector('[id^="mat-dialog"]').scrollTo(0, 0);
+  }
 }

@@ -25,3 +25,9 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 8px;
 }
+.sticky-fab-btn {
+  right: 28px;
+  position: fixed;
+  bottom: 16px;
+  z-index: 2;
+}
