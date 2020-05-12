@@ -24,7 +24,16 @@
   <div class='spacer-height'></div>
   <div class="card-border">
     <div class="card-image">
-      <img src="../assets/home1.png" alt="HOME" srcset="">
+      <img *ngIf="data.item['Organisation Type'] == 'Private Incorporated Body'"
+        src="../assets/aged_care/private incorporated body.jpeg" alt="HOME" srcset="">
+      <img *ngIf="data.item['Organisation Type'] == 'Religious'" src="../assets/aged_care/religious.jpeg" alt="HOME"
+        srcset="">
+      <img *ngIf="data.item['Organisation Type'] == 'Community Based'" src="../assets/aged_care/community-based.jpeg"
+        alt="HOME" srcset="">
+      <img *ngIf="data.item['Organisation Type'] == 'State Government'" src="../assets/aged_care/state government.jpeg"
+        alt="HOME" srcset="">
+      <img *ngIf="data.item['Organisation Type'] == 'Charitable'" src="../assets/aged_care/charitable.jpeg" alt="HOME"
+        srcset="">
     </div>
     <div class="card-content">
       <div class="mat-title">{{data.item.AGED_CARE_NAME}}</div>
