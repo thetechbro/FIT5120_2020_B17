@@ -128,12 +128,11 @@
           mat-button>Add to compare</button>
       </div>
     </ng-container>
-    <ng-container *ngIf="matchedItems?.length == 0 && (relatedItems$ | async)?.length === 0">
+    <ng-container *ngIf="matchedItems?.length == 0 && (relatedItems)?.length === 0">
       <div class="mat-body-1">No results found.</div>
-
     </ng-container>
   </div>
-  <ng-container *ngIf="relatedItems$ | async">
+  <ng-container *ngIf="relatedItems?.length > 0">
     <div class='spacer-height'></div>
     <div class='spacer-height'></div>
     <div class="mat-title">Nearby postcode recommendation</div>
