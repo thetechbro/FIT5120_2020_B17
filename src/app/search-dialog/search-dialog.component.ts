@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable, of } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { CompareDialogComponent } from '../compare-dialog/compare-dialog.component';
 import { SeeMoreDialogComponent } from '../see-more-dialog/see-more-dialog.component';
 
@@ -24,12 +24,14 @@ export class SearchDialogComponent implements OnInit {
   originalData: any[];
   compareItems = [];
   constructor(public dialogRef: MatDialogRef<SearchDialogComponent>, private db: AngularFirestore,
-              private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
+    private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
       zipcode: number,
       organizationtype: string
     }) { }
   matchedItems = [];
   matchedItems$: Observable<any>;
+  relatedItems$: Observable<any>;
+  relatedItems = [];
 
   priceList = [
     'All',
@@ -103,6 +105,28 @@ export class SearchDialogComponent implements OnInit {
       if (matchedItems) {
         this.matchedItems = matchedItems;
         this.originalData = matchedItems;
+        if (matchedItems.length <= 1) {
+          let pincodes;
+          if (matchedItems.length === 0) {
+            pincodes = [zipcode.toString()];
+          } else {
+            matchedItems.map(item => {
+              if (item.Cloest_Postcode) {
+                const relatedPostcodes = item.Cloest_Postcode.replace('[', '').replace(']', '').replace(/"/g, '').split(',');
+                pincodes = relatedPostcodes;
+              }
+            });
+          }
+          const relatedItems = [];
+          pincodes.map(async (postcode) => {
+            relatedItems.push(this.db.collection('goldenstick_data', ref => ref.where('STREET_PCODE', '==', postcode.trim()))
+              .valueChanges());
+          });
+          this.relatedItems$ = combineLatest(relatedItems);
+          this.relatedItems$.subscribe(d => {
+            d.map(i => this.relatedItems.push(...i));
+          });
+        }
       }
       this.loading$ = of(false);
     });
