@@ -46,7 +46,15 @@
   <div class="mat-body-1">{{data.item?.DESCRIPTION}}</div>
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
-  <div class="mat-title">Facilites</div>
+  <div class="mat-title flex-space-between">
+    <span class="inline-flex-center">Facilites</span>
+    <button *ngIf="!isOpenFacility" (click)="isOpenFacility = true" mat-icon-button>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <button *ngIf="isOpenFacility" (click)="isOpenFacility = false" mat-icon-button>
+      <mat-icon>expand_less</mat-icon>
+    </button>
+  </div>
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
@@ -60,106 +68,128 @@
     <div class="mat-title">{{'STREET SUBURB' | titlecase}}</div>
     <div class="mat-body-2">{{data.item?.STREET_SUBURB || '-'}}</div>
     <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET PCODE' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.STREET_PCODE || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET STATE' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.STREET_STATE || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'BUS ST. ADDRESS' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.BUS_ST_ADDRESS || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'BUS PCODE' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.BUS_PCODE || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'MAIN PH NUM' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.MAIN_PH_NUM || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'MAIN EMAIL ADDRESS' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.MAIN_EMAIL_ADDR || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'WEBSITE' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.WEBSITE || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'COMMON AREA DESC' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.COMMON_AREA_DESC || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'SPECIFIC FEATURES' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.SPECIFIC_FEATURES || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'ADDITIONAL CARE INCL' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.ADDITIONAL_CARE_INCL || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.ACCREDITATION || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.ACCREDITATION_PERIOD || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.CERTIFICATION || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'Provider Name' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item['Provider Name'] || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'Organisation Type' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item['Organisation Type'] || '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'Latitude' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.Latitude|| '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'Longitude' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.Longitude|| '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'SERVICE_TYPE' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.SERVICE_TYPE|| '-'}}</div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'PARTICULAR_NEED_SERVICES' | titlecase}}</div>
-    <div class="mat-body-2">{{data.item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
-    <div class='spacer-height'></div>
+    <ng-container *ngIf="!isOpenFacility">
+      <button mat-stroked-button (click)="isOpenFacility = true">See More</button>
+    </ng-container>
+    <ng-container *ngIf="isOpenFacility">
+      <div class="mat-title">{{'STREET PCODE' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.STREET_PCODE || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'STREET STATE' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.STREET_STATE || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'BUS ST. ADDRESS' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.BUS_ST_ADDRESS || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'BUS PCODE' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.BUS_PCODE || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'MAIN PH NUM' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.MAIN_PH_NUM || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'MAIN EMAIL ADDRESS' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.MAIN_EMAIL_ADDR || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'WEBSITE' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.WEBSITE || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'COMMON AREA DESC' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.COMMON_AREA_DESC || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'SPECIFIC FEATURES' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.SPECIFIC_FEATURES || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'ADDITIONAL CARE INCL' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.ADDITIONAL_CARE_INCL || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.ACCREDITATION || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.ACCREDITATION_PERIOD || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.CERTIFICATION || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'Provider Name' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item['Provider Name'] || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'Organisation Type' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item['Organisation Type'] || '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'Latitude' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.Latitude|| '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'Longitude' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.Longitude|| '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'SERVICE_TYPE' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.SERVICE_TYPE|| '-'}}</div>
+      <div class='spacer-height'></div>
+      <div class="mat-title">{{'PARTICULAR_NEED_SERVICES' | titlecase}}</div>
+      <div class="mat-body-2">{{data.item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
+      <div class='spacer-height'></div>
+      <button mat-stroked-button (click)="isOpenFacility = false">See Less</button>
+    </ng-container>
   </div>
 
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
-  <div class="mat-title">Room Detail</div>
+  <div class="mat-title flex-space-between">
+    <span class="inline-flex-center">Room Detail</span>
+    <button *ngIf="!isOpenRoomDetail" (click)="isOpenRoomDetail = true" mat-icon-button>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <button *ngIf="isOpenRoomDetail" (click)="isOpenRoomDetail = false" mat-icon-button>
+      <mat-icon>expand_less</mat-icon>
+    </button>
+  </div>
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
   <div class="round-border small-padding">
-    <div *ngFor="let room of data.item?.roomDetail" class="mat-body-2 content-padding">
-      <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'ROOM TYPE' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.ROOM_TYPE || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'ROOM DESC' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'MAX RAD' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.MAX_RAD || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'PAYMENT OPTIONS' | titlecase}}</div>
-      <div class="card-grid">
-        <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
-      </div>
-      <div class='spacer-height'></div>
-      <mat-divider></mat-divider>
-      <div class='spacer-height'></div>
+    <div *ngFor="let room of data.item?.roomDetail;let i = index;" class="mat-body-2 content-padding">
+      <ng-container *ngIf="i < 1 || isOpenRoomDetail">
+        <div class="mat-title">{{'ROOM NAME' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.ROOM_NAME || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'ROOM TYPE' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.ROOM_TYPE || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'ROOM DESC' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'MAX RAD' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.MAX_RAD || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'PAYMENT OPTIONS' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.PAYMENT_OPTIONS || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <mat-divider></mat-divider>
+        <div class='spacer-height'></div>
+      </ng-container>
     </div>
+    <ng-container *ngIf="data.item?.roomDetail.length > 1 && !isOpenRoomDetail">
+      <button mat-stroked-button (click)="isOpenRoomDetail = true">See More</button>
+    </ng-container>
+    <ng-container *ngIf="data.item?.roomDetail.length > 0 && isOpenRoomDetail">
+      <button mat-stroked-button (click)="isOpenRoomDetail = false">See Less</button>
+    </ng-container>
     <ng-container *ngIf="data.item?.roomDetail.length == 0">
       <div class="mat-body-2">No room detail available.</div>
     </ng-container>

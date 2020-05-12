@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class SeeMoreDialogComponent implements OnInit {
   loading$: Observable<boolean>;
+  isOpenFacility: boolean;
+  isOpenRoomDetail: boolean;
   constructor(public dialogRef: MatDialogRef<SeeMoreDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: {
     item
   }) { }
