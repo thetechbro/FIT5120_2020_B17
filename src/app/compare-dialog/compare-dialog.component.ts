@@ -22,6 +22,7 @@ export class CompareDialogComponent implements OnInit {
    * scrollTop is for scroling to top
    */
   scrollTop() {
-    document.querySelector('[id^="mat-dialog"]').scrollTo(0, 0);
+    const elem = document.querySelectorAll('[id^="mat-dialog"]');
+    elem.forEach(e => e.scrollTo(0, 0));
   }
 }
