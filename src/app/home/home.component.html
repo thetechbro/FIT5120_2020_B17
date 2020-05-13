@@ -5,15 +5,15 @@
 <form [formGroup]="searchPincodeForm">
   <div class="flexy-grid">
     <mat-form-field appearance="outline">
-      <mat-label>Enter Zipcode</mat-label>
-      <input matInput formControlName="zipcode" placeholder="Enter Zipcode">
+      <mat-label>Enter Postcode</mat-label>
+      <input matInput formControlName="zipcode" placeholder="Enter Postcode">
       <button mat-button matPrefix mat-icon-button aria-label="Search">
         <mat-icon fontSet="material-icons-outlined">search</mat-icon>
       </button>
       <mat-error *ngIf="searchPincodeForm.controls.zipcode?.errors?.invalid">Please enter valid zipcode</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Organization type</mat-label>
+      <mat-label>Organisation type</mat-label>
       <mat-select formControlName="organizationtype">
         <mat-option *ngFor="let label of organizationtypeList" [value]="label">
           {{label}}
@@ -21,7 +21,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <mat-error *ngIf="searchPincodeForm.errors?.noinput">Please select either zipcode or organization type.</mat-error>
+  <mat-error *ngIf="searchPincodeForm.errors?.noinput">Please select either postcode or organisation type.</mat-error>
   <div class="small-spacer-height">
   </div>
   <!-- <mat-error class="mat-subheading-1">{{errorMessage$ | async}}</mat-error> -->

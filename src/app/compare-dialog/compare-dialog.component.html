@@ -27,14 +27,23 @@
     <ng-container *ngFor="let item of data.compareItems">
       <div class="card-border">
         <div class="card-image">
-          <img src="../assets/home1.png" alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Private Incorporated Body'"
+            src="../../assets/aged_care/private incorporated body.jpeg" alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Religious'" src="../../assets/aged_care/religious.jpeg" alt="HOME"
+            srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Community Based'" src="../../assets/aged_care/community-based.jpeg"
+            alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'State Government'"
+            src="../../assets/aged_care/state government.jpeg" alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Charitable'" src="../../assets/aged_care/charitable.jpeg" alt="HOME"
+            srcset="">
         </div>
         <div class="card-content">
           <div class="mat-title">{{item.AGED_CARE_NAME}}</div>
           <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
           </div>
           <div class="mat-body-2">
-            Zipcode: {{item.STREET_PCODE}}
+            Postcode: {{item.STREET_PCODE}}
           </div>
         </div>
       </div>
@@ -203,6 +212,11 @@
             <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
           </div>
           <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM SIZE (Squared Meters)' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room['ROOM_SIZE(Squared Meters)'] || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
           <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
           <div class="card-grid">
             <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
@@ -238,6 +252,11 @@
             <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
           </div>
           <div class='spacer-height'></div>
+          <div class="mat-title">{{'ROOM SIZE (Squared Meters)' | titlecase}}</div>
+          <div class="card-grid">
+            <div class="mat-body-2 content-padding">{{room['ROOM_SIZE(Squared Meters)'] || '-'}}</div>
+          </div>
+          <div class='spacer-height'></div>
           <div class="mat-title">{{'MAX daily price' | titlecase}}</div>
           <div class="card-grid">
             <div class="mat-body-2 content-padding">{{room.MAX_DAP || '-'}}</div>
@@ -260,4 +279,8 @@
     <div class='spacer-height'>
     </div>
   </div>
+  <button color="primary" class="sticky-fab-btn" (click)="scrollTop()" mat-mini-fab
+    aria-label="icon-button with a scroll up icon">
+    <mat-icon>keyboard_arrow_up</mat-icon>
+  </button>
 </section>

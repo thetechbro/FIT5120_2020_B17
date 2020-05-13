@@ -9,6 +9,10 @@
   min-height: 92px;
 }
 
+.padding-table {
+  padding: 8px;
+}
+
 .card-image {
   width: 100%;
   box-sizing: border-box;
@@ -24,4 +28,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 8px;
+}
+.sticky-fab-btn {
+  right: 28px;
+  position: fixed;
+  bottom: 16px;
+  z-index: 2;
 }

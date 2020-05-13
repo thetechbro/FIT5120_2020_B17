@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable, of } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { CompareDialogComponent } from '../compare-dialog/compare-dialog.component';
 import { SeeMoreDialogComponent } from '../see-more-dialog/see-more-dialog.component';
 
@@ -30,131 +30,33 @@ export class SearchDialogComponent implements OnInit {
     }) { }
   matchedItems = [];
   matchedItems$: Observable<any>;
+  relatedItems$: Observable<any>;
+  relatedItems = [];
 
   priceList = [
     'All',
-    '5',
-    '20',
-    '23',
-    '24',
-    '26',
-    '27',
-    '28',
-    '30',
-    '31',
-    '32',
-    '33.63',
-    '34',
-    '35',
-    '36',
-    '37',
-    '38',
-    '39',
-    '40',
-    '40.36',
-    '41',
-    '42',
-    '42.37',
-    '43',
-    '44',
-    '44.39',
-    '45',
-    '46',
-    '47',
-    '48',
-    '48.43',
-    '49',
-    '49.77',
-    '50',
-    '51',
-    '51.12',
-    '52',
-    '53',
-    '53.81',
-    '54',
-    '55',
-    '56',
-    '57',
-    '58',
-    '59',
-    '60',
-    '60.53',
-    '61',
-    '62',
-    '63',
-    '63.22',
-    '64',
-    '65',
-    '66',
-    '67',
-    '68',
-    '70',
-    '71',
-    '73',
-    '73.99',
-    '74',
-    '75',
-    '76',
-    '77',
-    '80',
-    '81',
-    '82',
-    '84',
-    '86',
-    '87',
-    '89',
-    '91',
-    '92',
-    '93',
-    '94',
-    '96',
-    '98.2',
-    '99',
-    '100.89',
-    '101',
-    '102',
-    '103',
-    '105',
-    '106',
-    '108',
-    '109',
-    '111',
-    '113',
-    '114',
-    '115',
-    '118',
-    '119',
-    '121',
-    '124',
-    '127',
-    '128',
-    '131',
-    '132',
-    '134',
-    '135',
-    '140.57',
-    '148',
-    '161',
-    '161.42',
-    '163',
-    '165',
-    '168',
-    '169',
-    '174.88',
-    '175',
-    '178.24',
-    '182',
-    '185',
-    '188',
-    '188.33',
-    '192',
-    '195',
-    '197',
-    '201.78',
-    '202',
-    '215.23',
-    '222',
-    '322.85',
+    '0-15',
+    '16-30',
+    '31-45',
+    '46-60',
+    '61-75',
+    '76-90',
+    '91-105',
+    '106-120',
+    '121-135',
+    '136-150',
+    '151-165',
+    '166-180',
+    '181-195',
+    '196-210',
+    '211-225',
+    '226-240',
+    '241-255',
+    '256-270',
+    '271-285',
+    '286-300',
+    '301-315',
+    '316-330'
   ];
   roomTypeList = [
     'All',
@@ -203,6 +105,28 @@ export class SearchDialogComponent implements OnInit {
       if (matchedItems) {
         this.matchedItems = matchedItems;
         this.originalData = matchedItems;
+        if (matchedItems.length <= 1) {
+          let pincodes;
+          if (matchedItems.length === 0) {
+            pincodes = [zipcode.toString()];
+          } else {
+            matchedItems.map(item => {
+              if (item.Cloest_Postcode) {
+                const relatedPostcodes = item.Cloest_Postcode.replace('[', '').replace(']', '').replace(/"/g, '').split(',');
+                pincodes = relatedPostcodes;
+              }
+            });
+          }
+          const relatedItems = [];
+          pincodes.map(async (postcode) => {
+            relatedItems.push(this.db.collection('goldenstick_data', ref => ref.where('STREET_PCODE', '==', postcode.trim()))
+              .valueChanges());
+          });
+          this.relatedItems$ = combineLatest(relatedItems);
+          this.relatedItems$.subscribe(d => {
+            d.map(i => this.relatedItems.push(...i));
+          });
+        }
       }
       this.loading$ = of(false);
     });
@@ -243,8 +167,14 @@ export class SearchDialogComponent implements OnInit {
     }
     if (formValues.price && formValues.price !== 'All') {
       const price = formValues.price;
+      const lowPrice = Number(price.split('-')[0]);
+      const highPrice = Number(price.split('-')[1]);
       filteringData = filteringData.filter(item => {
-        return item.roomDetail ? item.roomDetail.filter(room => room.MAX_DAP.trim() === price).length > 0 : false;
+        return item.roomDetail ? item.roomDetail
+          .filter(room => {
+            const numprice = Number(room.MAX_DAP.trim());
+            return numprice >= lowPrice && numprice <= highPrice;
+          }).length > 0 : false;
       });
     }
     if (formValues.roomtype && formValues.roomtype !== 'All') {
@@ -257,10 +187,10 @@ export class SearchDialogComponent implements OnInit {
   }
 
   /**
-   * scrollTop is for scrooling to top
+   * scrollTop is for scroling to top
    */
   scrollTop() {
-    document.querySelector('#mat-dialog-0').scrollTo(0, 0);
+    document.querySelector('[id^="mat-dialog"]').scrollTo(0, 0);
   }
 
   /**
