@@ -119,9 +119,9 @@
       <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.ACCREDITATION_PERIOD || '-'}}</div>
       <div class='spacer-height'></div>
-      <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
+      <!-- <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.CERTIFICATION || '-'}}</div>
-      <div class='spacer-height'></div>
+      <div class='spacer-height'></div> -->
       <div class="mat-title">{{'Provider Name' | titlecase}}</div>
       <div class="mat-body-2">{{data.item['Provider Name'] || '-'}}</div>
       <div class='spacer-height'></div>
@@ -179,6 +179,11 @@
         <div class="mat-title">{{'ROOM DESCription' | titlecase}}</div>
         <div class="card-grid">
           <div class="mat-body-2 content-padding">{{room.ROOM_DESC || '-'}}</div>
+        </div>
+        <div class='spacer-height'></div>
+        <div class="mat-title">{{'REFUNDABLE PRICE' | titlecase}}</div>
+        <div class="card-grid">
+          <div class="mat-body-2 content-padding">{{room.REFUNDABLE_PRICE || '-'}}</div>
         </div>
         <div class='spacer-height'></div>
         <div class="mat-title">{{'MAXIMUM ROOM OCCUPANCY' | titlecase}}</div>
