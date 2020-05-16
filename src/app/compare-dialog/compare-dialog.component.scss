@@ -1,5 +1,7 @@
 .small-margin {
   margin: 8px 0;
+  height: 96vh;
+  overflow: auto;
 }
 
 .card-border {
@@ -9,7 +11,7 @@
 }
 .card-content {
   padding: 8px 16px;
-  min-height: 92px;
+  min-height: 122px;
 }
 
 .card-image {

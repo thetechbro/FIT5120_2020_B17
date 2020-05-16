@@ -1,13 +1,14 @@
 <mat-toolbar class="sticky-toolbar">
   <mat-toolbar-row class="app-header">
     <span class="display-flex">
-      <img alt="Logo" class="small-margin-right" src="../assets/toolbar_logo.png">
-      <span class="inline-flex-center">GoldenStick
-      </span>
+      <img alt="Logo" src="../assets/toolbar_logo.png">
+      <a mat-button class="inline-flex-center mat-title" [routerLink]="['home']">GoldenStick</a>
+      <!-- <span class="inline-flex-center">GoldenStick
+      </span> -->
     </span>
     <span></span>
     <span>
-      <a mat-button routerLinkActive="color-blue" [routerLink]="['home']">Home</a>
+      <a mat-button routerLinkActive="color-blue" [routerLink]="['home']">Find Aged Care</a>
     </span>
   </mat-toolbar-row>
   <mat-toolbar-row [style.height.px]="2" [style.padding.px]="0">

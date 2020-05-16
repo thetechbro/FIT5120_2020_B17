@@ -54,7 +54,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Acreditation Period</mat-label>
+        <mat-label>Accreditation Period</mat-label>
         <mat-select formControlName="acreditation">
           <mat-option *ngFor="let acreditation of acreditationList" [value]="acreditation">
             {{acreditation}}
@@ -82,7 +82,7 @@
     <div class='spacer-height'></div>
     <ng-container *ngFor="let item of compareItems">
       <div class="round-border small-padding flex-space-between">
-        <div class="mat-body-1 align-center">{{item.AGED_CARE_NAME}}</div>
+        <div class="mat-body-1 align-center">{{item.AGED_CARE_NAME | titlecase}}</div>
         <button (click)="removeFromCompare(item.SERVICE_ID)" mat-icon-button>
           <mat-icon>close</mat-icon>
         </button>
@@ -115,8 +115,9 @@
 
         </div>
         <div class="card-content">
-          <div class="mat-title">{{item.AGED_CARE_NAME}}</div>
-          <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
+          <div class="mat-title">{{item.AGED_CARE_NAME | titlecase}}</div>
+          <div class="mat-body-1">Organization Type:
+            {{item['Organisation Type'] ? item['Organisation Type'] : '-'}}
           </div>
           <div class="mat-body-2">
             Postcode: {{item.STREET_PCODE}}
@@ -128,7 +129,7 @@
           mat-button>Add to compare</button>
       </div>
     </ng-container>
-    <ng-container *ngIf="matchedItems?.length == 0 && (relatedItems)?.length === 0">
+    <ng-container *ngIf="matchedItems?.length == 0">
       <div class="mat-body-1">No results found.</div>
     </ng-container>
   </div>
@@ -156,8 +157,9 @@
 
           </div>
           <div class="card-content">
-            <div class="mat-title">{{item.AGED_CARE_NAME}}</div>
-            <div class="mat-body-1">ACCREDATION PERIOD: {{item.ACCREDITATION_PERIOD ? item.ACCREDITATION_PERIOD : '-'}}
+            <div class="mat-title">{{item.AGED_CARE_NAME | titlecase}}</div>
+            <div class="mat-body-1">Organization Type:
+              {{item['Organisation Type'] ? item['Organisation Type'] : '-'}}
             </div>
             <div class="mat-body-2">
               Postcode: {{item.STREET_PCODE}}

@@ -124,7 +124,7 @@ export class SearchDialogComponent implements OnInit {
           });
           this.relatedItems$ = combineLatest(relatedItems);
           this.relatedItems$.subscribe(d => {
-            d.map(i => this.relatedItems.push(...i));
+            d.map(i => (this.relatedItems.length <= 6) ? this.relatedItems.push(...i) : '');
           });
         }
       }
@@ -172,7 +172,7 @@ export class SearchDialogComponent implements OnInit {
       filteringData = filteringData.filter(item => {
         return item.roomDetail ? item.roomDetail
           .filter(room => {
-            const numprice = Number(room.MAX_DAP.trim());
+            const numprice = Number(room.DAILY_PRICE.trim());
             return numprice >= lowPrice && numprice <= highPrice;
           }).length > 0 : false;
       });

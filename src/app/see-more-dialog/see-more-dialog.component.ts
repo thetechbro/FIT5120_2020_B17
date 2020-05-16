@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { combineLatest, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-see-more-dialog',
@@ -23,12 +24,12 @@ export class SeeMoreDialogComponent implements OnInit {
     }) { }
 
   getUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=${Number(this.data.item.Latitude)},${Number(this.data.item.Longitude)}&amp;q=+(${encodeURI(this.data.item.AGED_CARE_NAME)})&amp;ie=UTF8&amp;z=14&amp;output=embed`);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps/embed/v1/place?key=${environment.googleMapAPI}&q=${encodeURI(this.data.item.AGED_CARE_NAME)}&center=${Number(this.data.item.Latitude)},${Number(this.data.item.Longitude)}`);
   }
   ngOnInit(): void {
     console.log(this.data.item);
-    if (this.data && this.data.item && this.data.item.Cloest_Facility) {
-      const cloestFacilities = [...new Set(this.data.item.Cloest_Facility.replace('[', '')
+    if (this.data && this.data.item && this.data.item.CLOSEST_Facility) {
+      const cloestFacilities = [...new Set(this.data.item.CLOSEST_Facility.replace('[', '')
         .replace(']', '').replace(/"/g, '')
         .replace(/'/g, '').replace(/ /g, '').split(',') as string)];
       console.log(cloestFacilities);
