@@ -93,7 +93,7 @@
       <div class="mat-body-2">{{data.item?.BUS_PCODE || '-'}}</div>
       <div class='spacer-height'></div> -->
       <div class="mat-title">{{'PHONE NUMBER' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.PHONE_NUMBER || '-'}}</div>
+      <div class="mat-body-2">{{data.item?.PHONE_NUMBER ? '+' + data.item?.PHONE_NUMBER : '-'}}</div>
       <div class='spacer-height'></div>
       <div class="mat-title">{{'EMAIL' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.EMAIL || '-'}}</div>
