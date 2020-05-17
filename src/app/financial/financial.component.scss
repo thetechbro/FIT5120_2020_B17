@@ -1,0 +1,68 @@
+
+form{
+    width: 400px;
+    height:200px;
+    // background-color: rgb(221, 173, 51);
+    border-radius: 5px;
+    box-shadow: gray;
+    text-align: center;
+    margin: 0 auto;
+}
+
+label{
+    float: left;
+}
+p {
+    margin-bottom: 50px;
+}
+
+.form-group{
+    margin-top: 30px;
+}
+
+.btn-primary{
+    float: right;
+
+}
+
+.greeting{
+    margin: 0 auto;
+    margin-top: 30px;
+    line-height: 40px;
+    width: 80%;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 30px;   
+    font-weight: 600;
+    
+}
+
+
+
+.sentence1{
+    margin-top: 150px;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+.sentence2{
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: justify;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+  
+}
+
+button{
+    width: 90px;
+    height: 40px;
+    font-size: 16px;
+   
+    border: none;
+}

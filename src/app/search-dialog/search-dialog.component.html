@@ -1,0 +1,181 @@
+<mat-toolbar class="sticky-toolbar">
+  <mat-toolbar-row class="app-header">
+    <span class="display-flex">
+      <button (click)="dialogRef.close()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="inline-flex-center">Back
+      </span>
+    </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="2" [style.padding.px]="0">
+    <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="1" [style.padding.px]="0">
+    <mat-divider [style.width.%]="100"></mat-divider>
+  </mat-toolbar-row>
+</mat-toolbar>
+<section class="container-margin-main">
+  <div class='spacer-height'></div>
+  <div class="mat-display-3 aged-headline">Search Results</div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Filters</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <form [formGroup]="filterForm">
+    <div class="filter-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Room type</mat-label>
+        <mat-select formControlName="roomtype">
+          <mat-option *ngFor="let room of roomTypeList" [value]="room">
+            {{room}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <mat-select formControlName="price">
+          <mat-option *ngFor="let price of priceList" [value]="price">
+            {{price}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Price max</mat-label>
+        <input matInput type="text" formControlName="pricemax">
+      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label>Services</mat-label>
+        <mat-select formControlName="services">
+          <mat-option *ngFor="let service of servicesList" [value]="service">
+            {{service}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Accreditation Period</mat-label>
+        <mat-select formControlName="acreditation">
+          <mat-option *ngFor="let acreditation of acreditationList" [value]="acreditation">
+            {{acreditation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-error *ngIf="filterForm.errors?.noinput">Please select options to apply filters.</mat-error>
+    <div class="small-spacer-height">
+    </div>
+    <!-- <mat-error class="mat-subheading-1">{{errorMessage$ | async}}</mat-error> -->
+    <!-- <div class="small-spacer-height"></div> -->
+    <button class="full-width-btn mat-title" mat-stroked-button type="submit" color="primary"
+      (click)="filterData(filterForm.value)">Apply Filter</button>
+    <div class="small-spacer-height"></div>
+    <button *ngIf="isFilterData" class="full-width-btn mat-title" mat-stroked-button type="submit" color="primary"
+      (click)="clearFilterData()">Clear Filter</button>
+  </form>
+  <ng-container *ngIf="compareItems.length > 0">
+    <div class='spacer-height'></div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">Compare</div>
+    <div class='small-spacer-height'></div>
+    <mat-divider class='black-divider'></mat-divider>
+    <div class='spacer-height'></div>
+    <ng-container *ngFor="let item of compareItems">
+      <div class="round-border small-padding flex-space-between">
+        <div class="mat-body-1 align-center">{{item.AGED_CARE_NAME | titlecase}}</div>
+        <button (click)="removeFromCompare(item.SERVICE_ID)" mat-icon-button>
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <div class='small-spacer-height'></div>
+    </ng-container>
+    <button class="full-width-btn mat-title" mat-stroked-button type="submit" color="primary"
+      (click)="openCompareItems()">Compare Now</button>
+  </ng-container>
+  <div class='spacer-height'></div>
+  <div class='spacer-height'></div>
+  <div class="mat-title">Search Results</div>
+  <div class='small-spacer-height'></div>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <div class="card-grid">
+    <ng-container *ngFor="let item of matchedItems">
+      <div class="card-border">
+        <div class="card-image">
+          <img *ngIf="item['Organisation Type'] == 'Private Incorporated Body'"
+            src="../assets/aged_care/private incorporated body.jpeg" alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Religious'" src="../assets/aged_care/religious.jpeg" alt="HOME"
+            srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Community Based'" src="../assets/aged_care/community-based.jpeg"
+            alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'State Government'" src="../assets/aged_care/state government.jpeg"
+            alt="HOME" srcset="">
+          <img *ngIf="item['Organisation Type'] == 'Charitable'" src="../assets/aged_care/charitable.jpeg" alt="HOME"
+            srcset="">
+
+        </div>
+        <div class="card-content">
+          <div class="mat-title">{{item.AGED_CARE_NAME | titlecase}}</div>
+          <div class="mat-body-1">Organization Type:
+            {{item['Organisation Type'] ? item['Organisation Type'] : '-'}}
+          </div>
+          <div class="mat-body-2">
+            Postcode: {{item.STREET_PCODE}}
+          </div>
+        </div>
+        <button (click)="openSearchMore(item)" mat-button>See more</button>
+        <div></div>
+        <button *ngIf="compareItems?.length < 2 && !alreadyInCompare(item.SERVICE_ID)" (click)="addToCompare(item)"
+          mat-button>Add to compare</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="matchedItems?.length == 0">
+      <div class="mat-body-1">No results found.</div>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="relatedItems?.length > 0">
+    <div class='spacer-height'></div>
+    <div class='spacer-height'></div>
+    <div class="mat-title">Nearby postcode recommendation</div>
+    <div class='small-spacer-height'></div>
+    <mat-divider class='black-divider'></mat-divider>
+    <div class='spacer-height'></div>
+    <div class="card-grid">
+      <ng-container *ngFor="let item of relatedItems">
+        <div class="card-border">
+          <div class="card-image">
+            <img *ngIf="item['Organisation Type'] == 'Private Incorporated Body'"
+              src="../assets/aged_care/private incorporated body.jpeg" alt="HOME" srcset="">
+            <img *ngIf="item['Organisation Type'] == 'Religious'" src="../assets/aged_care/religious.jpeg" alt="HOME"
+              srcset="">
+            <img *ngIf="item['Organisation Type'] == 'Community Based'" src="../assets/aged_care/community-based.jpeg"
+              alt="HOME" srcset="">
+            <img *ngIf="item['Organisation Type'] == 'State Government'" src="../assets/aged_care/state government.jpeg"
+              alt="HOME" srcset="">
+            <img *ngIf="item['Organisation Type'] == 'Charitable'" src="../assets/aged_care/charitable.jpeg" alt="HOME"
+              srcset="">
+
+          </div>
+          <div class="card-content">
+            <div class="mat-title">{{item.AGED_CARE_NAME | titlecase}}</div>
+            <div class="mat-body-1">Organization Type:
+              {{item['Organisation Type'] ? item['Organisation Type'] : '-'}}
+            </div>
+            <div class="mat-body-2">
+              Postcode: {{item.STREET_PCODE}}
+            </div>
+          </div>
+          <button (click)="openSearchMore(item)" mat-button>See more</button>
+          <div></div>
+          <button *ngIf="compareItems?.length < 2 && !alreadyInCompare(item.SERVICE_ID)" (click)="addToCompare(item)"
+            mat-button>Add to compare</button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <button color="primary" class="sticky-fab-btn" (click)="scrollTop()" mat-mini-fab
+    aria-label="icon-button with a scroll up icon">
+    <mat-icon>keyboard_arrow_up</mat-icon>
+  </button>
+  <!-- </ng-container> -->
+</section>

@@ -1,0 +1,13 @@
+## Compiled JavaScript files
+**/*.js
+**/*.js.map
+
+# Typescript v1 declaration files
+typings/
+
+node_modules/
+
+goldenstick-6ec97-d3719800b384.json
+*-lock.json
+
+*.csv

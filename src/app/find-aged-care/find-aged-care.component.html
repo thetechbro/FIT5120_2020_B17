@@ -1,0 +1,72 @@
+<div style="width: 100%;">
+    <img src="../assets/banner.jpg" alt="Care for the Elderly" width="960" height="640">
+</div>
+<div class='spacer-height'></div>
+<h2 class="mat-display-2 aged-headline">Better Times Begin From Here!</h2>
+<div class='small-spacer-height'></div>
+<div class='small-spacer-height'></div>
+<div class='small-spacer-height'></div>
+<h1 class="mat-h1 aged-headline" style="color:orangered">Our website helps elderly people find long-term accommodation so that they can lead and maintain a quality life for themselves</h1>
+<div class="centre">Features</div>
+
+<div class="img-container">
+
+  <div>
+    <img src="../../assets/img1.jpg" width="140" height="140">
+    Find Aged Care Facilities at your preferred location.
+  </div>
+
+  <div>
+    <img src="../../assets/img2.png" width="140" height="140">
+    Compare between different aged care facilities.
+  </div>
+
+  <div>
+    <img src="../../assets/img3.jpg" width="140" height="140">
+    Choose the aged care that best suits your needs !
+  </div>
+
+</div>
+  
+<div class="centre" style="margin-bottom:2%">Why Choose Us ?</div>
+
+<div style="text-align: center; font-size: 1.2rem;">We care for our elderly because they deserve the best !</div>
+
+<div style="text-align: center;margin-top: 3%;">Enter Zipcode and Select Organisation to proceed</div>
+
+<form [formGroup]="searchPincodeForm">
+  <div class="flexy-grid">
+    <mat-form-field appearance="outline" class="field">
+    <mat-label>Enter Zipcode</mat-label>
+    <input matInput formControlName="zipcode" placeholder="Enter Zipcode">
+
+    <button mat-button matPrefix mat-icon-button aria-label="Search">
+      <mat-icon fontSet="material-icons-outlined">search</mat-icon>
+    </button>
+    
+    <mat-error *ngIf="searchPincodeForm.controls.zipcode?.errors?.invalid">Please enter valid zipcode</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+    <mat-label>Organization</mat-label>
+    <mat-select formControlName="organizationtype">
+      <mat-option *ngFor="let label of organizationtypeList" [value]="label">
+        {{label}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-error *ngIf="searchPincodeForm.errors?.noinput">Please select either zipcode or organization type.</mat-error>
+
+  <div class="small-spacer-height">
+
+  </div>
+  <!-- <mat-error class="mat-subheading-1">{{errorMessage$ | async}}</mat-error> -->
+  <!-- <div class="small-spacer-height"></div> -->
+  <div class="btn-container">
+    <button mat-stroked-button type="submit" color="primary" routerLink='/search-result'
+      (click)="getHome(searchPincodeForm.controls.zipcode.value, searchPincodeForm.controls.organizationtype.value)">Search Now
+    </button>
+  </div>
+
+</form>
