@@ -1,0 +1,31 @@
+<mat-toolbar class="sticky-toolbar">
+  <mat-toolbar-row class="app-header">
+    <span class="display-flex">
+      <img alt="Logo" src="../assets/toolbar_logo.png">
+      <a mat-button class="inline-flex-center mat-title" [routerLink]="['home']">GoldenStick</a>
+      <!-- <span class="inline-flex-center">GoldenStick
+      </span> -->
+    </span>
+    <span></span>
+    <span>
+      <a mat-button routerLinkActive="color-blue" [routerLink]="['home']">Find Aged Care</a>
+    </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="2" [style.padding.px]="0">
+    <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
+  </mat-toolbar-row>
+  <mat-toolbar-row [style.height.px]="1" [style.padding.px]="0">
+    <mat-divider [style.width.%]="100"></mat-divider>
+  </mat-toolbar-row>
+</mat-toolbar>
+<section class="container-margin-main">
+  <router-outlet></router-outlet>
+</section>
+<footer>
+  <mat-divider class='black-divider'></mat-divider>
+  <div class='spacer-height'></div>
+  <div class="flex-space-between small-margin-lr">
+    <span class="mat-subheading-1">Copyrights Reserved</span>
+    <span class="mat-subheading-1">Privacy & Terms</span>
+  </div>
+</footer>
