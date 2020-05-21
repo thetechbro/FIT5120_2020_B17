@@ -188,14 +188,11 @@ export class SearchDialogComponent implements OnInit {
       });
     }
     this.matchedItems = filteringData;
-    console.log(filteringData.length);
-    console.log(recommendBasedOnType);
     if (filteringData.length <= 1 && recommendBasedOnType && recommendBasedOnType.key) {
       if (recommendBasedOnType.key === 'PARTICULAR_NEED_SERVICES') {
         this.relatedItems$ = this.db.collection('goldenstick_data').valueChanges();
         this.relatedItems$.subscribe(d => {
           if (d && d.length > 0) {
-            console.log(d);
             d.filter(i => i?.PARTICULAR_NEED_SERVICES.includes(recommendBasedOnType.value))
               .map(i => (this.relatedItems.length <= 6) ? this.relatedItems.push(i) : '');
           }
