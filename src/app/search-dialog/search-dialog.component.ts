@@ -24,7 +24,7 @@ export class SearchDialogComponent implements OnInit {
   originalData: any[];
   compareItems = [];
   constructor(public dialogRef: MatDialogRef<SearchDialogComponent>, private db: AngularFirestore,
-              private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
+    private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
       zipcode: number,
       organizationtype: string
     }) { }
@@ -74,7 +74,7 @@ export class SearchDialogComponent implements OnInit {
     'Financially Disadvantageds',
     'Homeless or at Risk of Becoming Homeless',
     'LGBTI',
-    'None',
+    //'None',
     'Socially Disadvantageds',
     'Veterans'
   ];
