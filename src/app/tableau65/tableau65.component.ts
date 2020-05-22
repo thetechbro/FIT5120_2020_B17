@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 declare var tableau: any;
 
@@ -10,11 +10,12 @@ declare var tableau: any;
 
 
 
-export class Tableau65Component {
+export class Tableau65Component implements OnInit {
   viz: any;
 
   ngOnInit(): void {
-    var placeholderDiv = document.getElementById('vizContainer');
+    var placeholderDiv = document.getElementById('vizContainer65');
+    console.log(placeholderDiv)
     // Replace this url with the url of your Tableau dashboard
       var url = 'https://public.tableau.com/views/ConsumerPatternofGroup65-74/Dashboard1?:display_count=y&:origin=viz_share_link';
       var options = {

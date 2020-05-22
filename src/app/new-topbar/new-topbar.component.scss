@@ -3,6 +3,7 @@
     flex: 1 0 auto;
     justify-content: space-between;
     width: 100%;
+    height: 80px;
   }
   
   .mat-button{
@@ -11,9 +12,43 @@
     font-size:20px !important;
     margin-left:-100px;
     display: table-cell;
+    line-height: 80px;
   }
-  
+
+  .mat-button:hover{
+    color: white;  
+  }
+
+
   .inline-flex-center{
     font-size: 30px;
   }
-  
+
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .mat-raised-button{
+    height:20px !important;
+    width:20px !important;
+    font-size:20px !important;
+    margin-left:-100px;
+    display: table-cell;
+    background-color: #e7e7e7;
+  }
+
+  .large-spacer-height{
+    height: 200px;
+  }
+
+  .heading_text{
+    color:orangered;
+  }
+
+
+  a{
+    text-decoration: none;
+  }

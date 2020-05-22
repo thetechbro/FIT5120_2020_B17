@@ -10,7 +10,7 @@ declare var tableau: any;
 export class Tableau75Component implements OnInit {
   viz: any;
   ngOnInit(): void {
-      var placeholderDiv = document.getElementById('vizContainer');
+    var placeholderDiv = document.getElementById('vizContainer75');
     // Replace this url with the url of your Tableau dashboard
       var url = 'https://public.tableau.com/views/ConsumerPatternofAgeGroup75/1_1?:display_count=y&publish=yes&:origin=viz_share_link';
       var options = {

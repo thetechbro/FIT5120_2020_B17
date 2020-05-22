@@ -9,27 +9,28 @@
     </span>
 
     <span>
-      <a mat-button routerLinkActive="color-blue" routerLink='/Home'>Home Page</a>
+      <a mat-button routerLinkActive="color-white" routerLink='/Home'>Home Page</a>
     </span>
     <span>
-      <a mat-button routerLinkActive="color-blue" routerLink='/aged-care-search'>Find Aged Care</a>
+      <a mat-button routerLinkActive="color-white" routerLink='/aged-care-search'>Find Aged Care</a>
     </span>
     <span>
-      <a mat-button routerLinkActive="color-blue" routerLink='/financial'>Financial Tip</a>
+      <a mat-button routerLinkActive="color-white" routerLink='/financial'>Financial Tip</a>
     </span>
 
 
   </mat-toolbar-row>
 
-  <mat-toolbar-row [style.height.px]="5" [style.padding.px]="10">
+  <!-- <mat-toolbar-row [style.height.px]="5" [style.padding.px]="10">
     <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
   </mat-toolbar-row>
 
   <mat-toolbar-row [style.height.px]="1" [style.padding.px]="0">
     <mat-divider [style.width.%]="100"></mat-divider>
-  </mat-toolbar-row>
+  </mat-toolbar-row> -->
 
 </mat-toolbar>
 <section class="container-margin-main">
   <router-outlet></router-outlet>
 </section>
+

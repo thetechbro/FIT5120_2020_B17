@@ -1,8 +1,30 @@
+.financial{
+    height: 46rem;
+    background-image: url('/assets/financial.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    font-family: 'Jost', sans-serif;
+  }
+
+.greeting{
+    margin: 0 auto;
+    margin-top: 30px;
+    line-height: 40px;
+    width: 80%;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 30px;   
+    font-weight: 600;
+}
 
 form{
     width: 400px;
-    height:200px;
-    // background-color: rgb(221, 173, 51);
+    height: 500px;
     border-radius: 5px;
     box-shadow: gray;
     text-align: center;
@@ -22,22 +44,7 @@ p {
 
 .btn-primary{
     float: right;
-
 }
-
-.greeting{
-    margin: 0 auto;
-    margin-top: 30px;
-    line-height: 40px;
-    width: 80%;
-    text-align: center;
-    font-family: 'Jost', sans-serif;
-    font-size: 30px;   
-    font-weight: 600;
-    
-}
-
-
 
 .sentence1{
     margin-top: 150px;
@@ -47,6 +54,7 @@ p {
     font-weight: 600;
     
 }
+
 .sentence2{
     margin-top: 50px;
     text-align: center;
@@ -56,13 +64,11 @@ p {
     font-family: 'Jost', sans-serif;
     font-size: 20px;
     line-height: 30px;
-  
 }
 
 button{
     width: 90px;
     height: 40px;
     font-size: 16px;
-   
     border: none;
 }

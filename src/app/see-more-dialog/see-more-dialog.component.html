@@ -15,6 +15,7 @@
     <mat-divider [style.width.%]="100"></mat-divider>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <section class="container-margin-main">
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
@@ -22,6 +23,7 @@
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
+
   <div class="card-border">
     <div class="card-image">
       <img *ngIf="data.item['Organisation Type'] == 'Private Incorporated Body'"
@@ -44,6 +46,7 @@
       </div>
     </div>
   </div>
+
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
@@ -66,6 +69,7 @@
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
+
   <div class="round-border small-padding">
     <!-- <div class="mat-title">{{'COMMGOVT SUBSIDISED' | titlecase}}</div>
     <div class="mat-body-2">{{data.item?.COMMGOVT_SUBSIDISED || '-'}}</div>
@@ -82,16 +86,11 @@
     <ng-container *ngIf="!isOpenFacility">
       <button mat-stroked-button (click)="isOpenFacility = true">See More</button>
     </ng-container>
+
     <ng-container *ngIf="isOpenFacility">
       <div class="mat-title">{{'Postcode' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.STREET_PCODE || '-'}}</div>
       <div class='spacer-height'></div>
-      <!-- <div class="mat-title">{{'BUS ST. ADDRESS' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.BUS_ST_ADDRESS || '-'}}</div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'BUS PCODE' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.BUS_PCODE || '-'}}</div>
-      <div class='spacer-height'></div> -->
       <div class="mat-title">{{'PHONE NUMBER' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.PHONE_NUMBER ? '+' + data.item?.PHONE_NUMBER : '-'}}</div>
       <div class='spacer-height'></div>
@@ -119,20 +118,11 @@
       <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.ACCREDITATION_PERIOD || '-'}}</div>
       <div class='spacer-height'></div>
-      <!-- <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.CERTIFICATION || '-'}}</div>
-      <div class='spacer-height'></div> -->
       <div class="mat-title">{{'Provider Name' | titlecase}}</div>
       <div class="mat-body-2">{{data.item['Provider Name'] || '-'}}</div>
       <div class='spacer-height'></div>
       <div class="mat-title">{{'Organisation Type' | titlecase}}</div>
       <div class="mat-body-2">{{data.item['Organisation Type'] || '-'}}</div>
-      <!-- <div class='spacer-height'></div>
-      <div class="mat-title">{{'Latitude' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.Latitude|| '-'}}</div>
-      <div class='spacer-height'></div>
-      <div class="mat-title">{{'Longitude' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.Longitude|| '-'}}</div> -->
       <div class='spacer-height'></div>
       <div class="mat-title">{{'SERVICE TYPE' | titlecase}}</div>
       <div class="mat-body-2">{{data.item?.SERVICE_TYPE|| '-'}}</div>
@@ -158,6 +148,7 @@
   <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
+
   <div class="round-border small-padding">
     <div *ngFor="let room of data.item?.roomDetail;let i = index;" class="mat-body-2 content-padding">
       <ng-container *ngIf="i < 1 || isOpenRoomDetail">
@@ -215,6 +206,7 @@
         <div class='spacer-height'></div>
       </ng-container>
     </div>
+
     <ng-container *ngIf="data.item?.roomDetail?.length > 1 && !isOpenRoomDetail">
       <button mat-stroked-button (click)="isOpenRoomDetail = true">See More</button>
     </ng-container>
@@ -231,10 +223,12 @@
   </button>
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
+
   <div *ngIf="data.item.Latitude && data.item.Longitude" style="width: 100%">
     <iframe width="100%" height="450" frameborder="0" style="border:0" [src]="getUrl()" allowfullscreen>
     </iframe>
   </div>
+
   <table mat-table [dataSource]="facilities$ | async" class="mat-elevation-z0 round-border">
 
     <!--- Note that these columns can be defined in any order.

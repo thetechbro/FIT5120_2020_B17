@@ -18,6 +18,8 @@ import { FindAgedCareComponent } from './find-aged-care/find-aged-care.component
 import { SearchResultComponent } from './search-result/search-result.component';
 import { Tableau65Component } from './tableau65/tableau65.component';
 import { Tableau75Component } from './tableau75/tableau75.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { Tableau75Component } from './tableau75/tableau75.component';
     SearchResultComponent,
     Tableau65Component,
     Tableau75Component,
+    FooterComponent,
     
   ],
   

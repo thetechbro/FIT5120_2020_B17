@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'financial',
@@ -13,6 +13,7 @@ export class FinancialComponent {
     {id:1, group:'65-74'},
     {id:2, group:'75+'},
   ];
+
   answer= ['','','']
 
   smoke = [
@@ -31,16 +32,15 @@ export class FinancialComponent {
     let smokeOrnot = dom.value.smokeOrnot;
     let drinkOrnot = dom.value.drinkOrnot;
     this.answer= [ageValue, smokeOrnot,drinkOrnot]
-    console.log(this.answer)
+    console.log(this.answer[0], this.answer[1], this.answer[2])
     return this.answer
   }
 
-  constructor(private elementRef: ElementRef) { }
-
-  getDomTest(){
-    console.dir(this.elementRef.nativeElement.querySelector('.f.value.ageGroup'))
+  print(){
+    
   }
 
 
+  constructor() { }
 
 }

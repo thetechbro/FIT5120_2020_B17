@@ -49,126 +49,61 @@
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
   <div class="round-border small-padding">
-    <div class="mat-title">{{'COMMGOVT SUBSIDISED' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
-        {{item?.COMMGOVT_SUBSIDISED || '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET ST. ADDRESS' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_ST_ADDRESS || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET SUBURB' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_SUBURB || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET PCODE' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_PCODE || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'STREET STATE' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.STREET_STATE || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'BUS ST. ADDRESS' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.BUS_ST_ADDRESS || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'BUS PCODE' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.BUS_PCODE || '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'MAIN PH NUM' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.MAIN_PH_NUM || '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'MAIN EMAIL ADDRESS' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.MAIN_EMAIL_ADDR || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'WEBSITE' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.WEBSITE || '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
+   
     <div class="mat-title">{{'COMMON AREA DESC' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.COMMON_AREA_DESC || '-'}}
       </div>
     </div>
     <div class='spacer-height'></div>
+
     <div class="mat-title">{{'SPECIFIC FEATURES' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.SPECIFIC_FEATURES || '-'}}
       </div>
     </div>
     <div class='spacer-height'></div>
+
     <div class="mat-title">{{'ADDITIONAL CARE INCL' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
         {{item?.ADDITIONAL_CARE_INCL || '-'}}</div>
     </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'ACCREDITATION' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.ACCREDITATION || '-'}}
-      </div>
-    </div>
-    <div class='spacer-height'></div>
+  
     <div class="mat-title">{{'ACCREDITATION PERIOD' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
         {{item?.ACCREDITATION_PERIOD || '-'}}</div>
     </div>
     <div class='spacer-height'></div>
+
     <div class="mat-title">{{'CERTIFICATION' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.CERTIFICATION || '-'}}
       </div>
     </div>
     <div class='spacer-height'></div>
+
     <div class="mat-title">{{'Provider Name' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item['Provider Name'] || '-'}}
       </div>
     </div>
     <div class='spacer-height'></div>
+
     <div class="mat-title">{{'Organisation Type' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
         {{item['Organisation Type'] || '-'}}</div>
     </div>
     <div class='spacer-height'></div>
-    <div class="mat-title">{{'Latitude' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.Latitude|| '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
-    <div class="mat-title">{{'Longitude' | titlecase}}</div>
-    <div class="card-grid">
-      <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.Longitude|| '-'}}</div>
-    </div>
-    <div class='spacer-height'></div>
+
     <div class="mat-title">{{'SERVICE_TYPE' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">{{item?.SERVICE_TYPE|| '-'}}</div>
     </div>
     <div class='spacer-height'></div>
+    
     <div class="mat-title">{{'PARTICULAR_NEED_SERVICES' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">

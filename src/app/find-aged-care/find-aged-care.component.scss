@@ -3,17 +3,59 @@
     display: block;
     text-align: center;
     font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   
-  @media (max-width: 800px) {
-    .inline-grid {
-      width: 100%;
-    }
+@media (max-width: 800px) {
+  .inline-grid {
+    width: 100%;
   }
+}
   
-  div img {
-    display: block;
-    margin: 0px auto;
+.find-back{
+    height: 46rem;
+    background-image: url('/assets/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    font-family: 'Jost', sans-serif;
   }
-  
-  
+
+  .find-container {
+    margin-top: 150px;
+    max-width: 890px;
+    margin-bottom:50px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-bottom: 16px;
+    height: auto;
+    font-family: 'Jost', sans-serif;
+  }
+
+
+
+.caption {
+  display: block;
+}
+
+
+div img {
+  display: block;
+  margin: 0px auto;
+}
+
+
+h3{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: 'Jost', sans-serif;
+}
+
+h1{
+  font-family: 'Jost', sans-serif;
+}
