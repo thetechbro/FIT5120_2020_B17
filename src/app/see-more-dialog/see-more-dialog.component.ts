@@ -27,12 +27,12 @@ export class SeeMoreDialogComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps/embed/v1/place?key=${environment.googleMapAPI}&q=${encodeURI(this.data.item.AGED_CARE_NAME)}&center=${Number(this.data.item.Latitude)},${Number(this.data.item.Longitude)}`);
   }
   ngOnInit(): void {
-    console.log(this.data.item);
+    // console.log(this.data.item);
     if (this.data && this.data.item && this.data.item.CLOSEST_Facility) {
       const cloestFacilities = [...new Set(this.data.item.CLOSEST_Facility.replace('[', '')
         .replace(']', '').replace(/"/g, '')
         .replace(/'/g, '').replace(/ /g, '').split(',') as string)];
-      console.log(cloestFacilities);
+      // console.log(cloestFacilities);
       const facilites = [];
       for (const facilityId of cloestFacilities) {
         facilites.push(this.db.collection('goldenstick_facility').doc(facilityId).valueChanges());

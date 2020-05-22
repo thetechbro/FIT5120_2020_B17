@@ -23,8 +23,9 @@ export class SearchDialogComponent implements OnInit {
   });
   originalData: any[];
   compareItems = [];
+  originalRelatedItemsData: any[];
   constructor(public dialogRef: MatDialogRef<SearchDialogComponent>, private db: AngularFirestore,
-              private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
+    private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: {
       zipcode: number,
       organizationtype: string
     }) { }
@@ -126,6 +127,7 @@ export class SearchDialogComponent implements OnInit {
           this.relatedItems$ = combineLatest(relatedItems);
           this.relatedItems$.subscribe(d => {
             d.map(i => (this.relatedItems.length <= 6) ? this.relatedItems.push(...i) : '');
+            this.originalRelatedItemsData = this.relatedItems;
           });
         }
       }
@@ -190,11 +192,12 @@ export class SearchDialogComponent implements OnInit {
     this.matchedItems = filteringData;
     if (filteringData.length <= 1 && recommendBasedOnType && recommendBasedOnType.key) {
       if (recommendBasedOnType.key === 'PARTICULAR_NEED_SERVICES') {
+        this.relatedItems = [];
         this.relatedItems$ = this.db.collection('goldenstick_data').valueChanges();
         this.relatedItems$.subscribe(d => {
           if (d && d.length > 0) {
-            d.filter(i => i?.PARTICULAR_NEED_SERVICES.includes(recommendBasedOnType.value))
-              .map(i => (this.relatedItems.length <= 6) ? this.relatedItems.push(i) : '');
+            d.filter(i => i.PARTICULAR_NEED_SERVICES.includes(recommendBasedOnType.value))
+              .map(i => (this.relatedItems.length <= 6 && i) ? this.relatedItems.push(i) : '');
           }
         });
       } else {
@@ -243,6 +246,7 @@ export class SearchDialogComponent implements OnInit {
       accredition: new FormControl('')
     }, { emitEvent: true });
     this.matchedItems = this.originalData;
+    this.relatedItems = this.originalRelatedItemsData;
   }
 
   /**
