@@ -191,8 +191,8 @@ export class SearchDialogComponent implements OnInit {
     }
     this.matchedItems = filteringData;
     if (filteringData.length <= 1 && recommendBasedOnType && recommendBasedOnType.key) {
+      this.relatedItems = [];
       if (recommendBasedOnType.key === 'PARTICULAR_NEED_SERVICES') {
-        this.relatedItems = [];
         this.relatedItems$ = this.db.collection('goldenstick_data').valueChanges();
         this.relatedItems$.subscribe(d => {
           if (d && d.length > 0) {
@@ -240,11 +240,7 @@ export class SearchDialogComponent implements OnInit {
    */
   clearFilterData() {
     this.isFilterData = false;
-    this.filterForm.reset({
-      roomtype: new FormControl(''),
-      services: new FormControl(''),
-      accredition: new FormControl('')
-    }, { emitEvent: true });
+    this.filterForm.reset({ emitEvent: true });
     this.matchedItems = this.originalData;
     this.relatedItems = this.originalRelatedItemsData;
   }
