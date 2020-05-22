@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "goldenstick-6ec97"
+  },
+  "targets": {
+    "goldenstick-6ec97": {
+      "hosting": {
+        "goldenstick": [
+          "goldenstick-6ec97"
+        ]
+      }
+    }
+  }
+}

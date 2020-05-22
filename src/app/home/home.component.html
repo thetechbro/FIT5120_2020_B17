@@ -1,0 +1,55 @@
+<img class="img-center" src="../assets/care-for-elder.png" alt="Care for the Elderly">
+<div class='spacer-height'></div>
+<h2 class="mat-display-2 aged-headline">Now find Aged Care in Melbourne easily and faster</h2>
+<div class='small-spacer-height'></div>
+<form [formGroup]="searchPincodeForm">
+  <div class="flexy-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Postcode</mat-label>
+      <input matInput formControlName="zipcode" placeholder="Enter Postcode">
+      <button mat-button matPrefix mat-icon-button aria-label="Search">
+        <mat-icon fontSet="material-icons-outlined">search</mat-icon>
+      </button>
+      <mat-error *ngIf="searchPincodeForm.controls.zipcode?.errors?.invalid">Please enter valid zipcode</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Organisation type</mat-label>
+      <mat-select formControlName="organizationtype">
+        <mat-option *ngFor="let label of organizationtypeList" [value]="label">
+          {{label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-error *ngIf="searchPincodeForm.errors?.noinput">Please select either postcode or organisation type.</mat-error>
+  <div class="small-spacer-height">
+  </div>
+  <!-- <mat-error class="mat-subheading-1">{{errorMessage$ | async}}</mat-error> -->
+  <!-- <div class="small-spacer-height"></div> -->
+  <button class="full-width-btn mat-title" mat-stroked-button type="submit" color="primary"
+    (click)="getHome(searchPincodeForm.controls.zipcode.value, searchPincodeForm.controls.organizationtype.value)">Search
+    Now</button>
+</form>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<div class="mat-title">Features</div>
+<div class='small-spacer-height'></div>
+<mat-divider class='black-divider'></mat-divider>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<section class="inline-grid">
+  <mat-icon class="margin-small-top" fontSet="material-icons-outlined">location_on</mat-icon>
+  <div class="mat-display-1">Find aged care at your preferred location</div>
+</section>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<section class="inline-grid">
+  <mat-icon class="margin-small-top" fontSet="material-icons-outlined">assignment_turned_in</mat-icon>
+  <h4 class="mat-display-1">Compare aged care facilities and decide easily</h4>
+</section>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
+<div class='spacer-height'></div>
