@@ -1,7 +1,7 @@
 <mat-toolbar class="sticky-toolbar">
   <mat-toolbar-row class="app-header">
     <span class="display-flex">
-      <button (click)="dialogRef.close()" mat-icon-button>
+      <button (click)="dialogRef.close()" routerLink='/aged-care-search' mat-icon-button>
         <mat-icon>arrow_back</mat-icon>
       </button>
       <span class="inline-flex-center">Back
@@ -15,8 +15,9 @@
     <mat-divider [style.width.%]="100"></mat-divider>
   </mat-toolbar-row>
 </mat-toolbar>
-<section class="container-margin-main" style="margin-top: 80px; margin-bottom: 20px;">
+<section class="container-margin-main" style="margin-top: 80px;">
   <div class='spacer-height'></div>
+  <div class="mat-display-3 aged-headline" >Search Results</div>
   <div class='spacer-height'></div>
   <div class="mat-title">Filters</div>
   <div class='small-spacer-height'></div>
@@ -93,7 +94,8 @@
   </ng-container>
   <div class='spacer-height'></div>
   <div class='spacer-height'></div>
-  <div class="mat-display-3 aged-headline">Search Results</div>
+  <div class="mat-title">Search Results</div>
+  <div class='small-spacer-height'></div>
   <mat-divider class='black-divider'></mat-divider>
   <div class='spacer-height'></div>
   <div class="card-grid">
@@ -177,4 +179,3 @@
   </button>
   <!-- </ng-container> -->
 </section>
-<app-footer></app-footer>

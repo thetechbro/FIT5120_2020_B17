@@ -42,7 +42,7 @@ export class FindAgedCareComponent implements OnInit {
       }, { emitEvent: true });
       return;
     }
-    if (zipcode && isNaN(zipcode)) {
+    if (zipcode && (isNaN(zipcode) || zipcode <= 0)) {
       this.searchPincodeForm.controls.zipcode.setErrors({
         invalid: true
       }, { emitEvent: true });

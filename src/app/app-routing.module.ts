@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FinancialComponent } from './financial/financial.component';
 import { FindAgedCareComponent } from './find-aged-care/find-aged-care.component';
-import { SearchResultComponent } from './search-result/search-result.component';
 
 
 
@@ -12,7 +11,6 @@ const routes: Routes = [
   { path: 'Home', component: HomepageComponent },
   { path: 'financial', component: FinancialComponent },
   { path: 'aged-care-search', component: FindAgedCareComponent },
-  { path: 'search-result', component: SearchResultComponent },
 ];
 
 @NgModule({

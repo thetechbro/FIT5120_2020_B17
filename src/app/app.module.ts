@@ -15,7 +15,6 @@ import { NewTopbarComponent } from './new-topbar/new-topbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FinancialComponent } from './financial/financial.component';
 import { FindAgedCareComponent } from './find-aged-care/find-aged-care.component';
-import { SearchResultComponent } from './search-result/search-result.component';
 import { Tableau65Component } from './tableau65/tableau65.component';
 import { Tableau75Component } from './tableau75/tableau75.component';
 import { FooterComponent } from './footer/footer.component';
@@ -31,7 +30,6 @@ import { FooterComponent } from './footer/footer.component';
     HomepageComponent,
     FinancialComponent,
     FindAgedCareComponent,
-    SearchResultComponent,
     Tableau65Component,
     Tableau75Component,
     FooterComponent,

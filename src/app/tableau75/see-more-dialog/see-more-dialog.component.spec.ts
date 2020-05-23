@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchResultComponent } from './search-result.component';
+import { SeeMoreDialogComponent } from './see-more-dialog.component';
 
-describe('SearchResultComponent', () => {
-  let component: SearchResultComponent;
-  let fixture: ComponentFixture<SearchResultComponent>;
+describe('SeeMoreDialogComponent', () => {
+  let component: SeeMoreDialogComponent;
+  let fixture: ComponentFixture<SeeMoreDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchResultComponent ]
+      declarations: [ SeeMoreDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchResultComponent);
+    fixture = TestBed.createComponent(SeeMoreDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

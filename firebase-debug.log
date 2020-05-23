@@ -1,0 +1,14 @@
+[debug] [2020-05-23T04:27:21.476Z] ----------------------------------------------------------------------
+[debug] [2020-05-23T04:27:21.477Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YX\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --except functions
+[debug] [2020-05-23T04:27:21.478Z] CLI Version:   8.2.0
+[debug] [2020-05-23T04:27:21.478Z] Platform:      win32
+[debug] [2020-05-23T04:27:21.478Z] Node Version:  v12.16.3
+[debug] [2020-05-23T04:27:21.479Z] Time:          Sat May 23 2020 14:27:21 GMT+1000 (GMT+10:00)
+[debug] [2020-05-23T04:27:21.479Z] ----------------------------------------------------------------------
+[debug] [2020-05-23T04:27:21.479Z] 
+[debug] [2020-05-23T04:27:21.486Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-23T04:27:21.486Z] > authorizing via signed-in user
+[debug] [2020-05-23T04:27:21.486Z] [iam] checking project goldenstick-6ec97 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-23T04:27:21.488Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-23T04:27:21.488Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>

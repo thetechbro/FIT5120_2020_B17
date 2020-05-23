@@ -35,81 +35,201 @@
 
 </form>
 
-<div *ngIf="answer[0] && answer[1] && answer[2]">
+<div *ngIf="answer[0] && answer[1] && answer[2]" class='financial-tip'>
 
     <div *ngIf="answer[0]=='65-74'">
         <div class='sentence1'>
             <p>
-                This is the average consumer pattern of Australians whose age is between 65-74.
+                Below is the average consumption pattern of Australians per week whose age is between 65-74.
             </p>
         </div>
        
         <div class='sentence2' *ngIf="answer[1]==answer[2] && answer[2]=='Yes'">
             <p>
-                In your age group, Australian people spent $26.73 on alcoholic baverages
-                and $11.32 on tabacco products in average per week. This amount of money could 
-                be used to buy at least one or two picture album which is a great way to record 
-                wonderful moments with your family and friends. 
+                In your age group, Australian people spent $26.73 on alcoholic beverages
+                and $11.32 on tobacco products on average per week. 
+                <br>
+                Smoking and Drinking is a habit that can be difficult to break. Not only does it impact your health, 
+                social status, but it can also put much financial strain on you. The relatively low cost of a single 
+                pack of cigarettes or a bottle of alcohol conceals the enormous fortune you are spending on alcohol and cigarette over a given period of time.
             </p>
         </div>
 
         <div class='sentence2' *ngIf="answer[1]=='No' && answer[2]=='Yes'">
             <p style='margin-bottom: 50px;'>
-                In your age group, Australian people spent $26.73 on alcoholic baverages in average per week. 
-                This amount of money could be used to buy one picture album which is a great way to record 
-                wonderful moments with your family and friends. 
+                In your age group, Australian people spent $26.73 on alcoholic beverages on average per week. 
+                <br>
+                Excessive drinking of alcohol can blow through the family budget, cause fights between your loved ones, 
+                and impair the health and happiness of the people you love. It is well established that alcohol abuse can 
+                lead to serious financial problems, but not only because of the actual money spent on alcohol. However, 
+                because your inhibitions are lowered when you drink alcohol, you may be more likely to impulsively buy things 
+                without thinking through the consequences of those purchases. Hence, it never too late to quit alcohol.
             </p>
         </div>
 
         <div class='sentence2' *ngIf="answer[1]=='Yes' && answer[2]=='No'">
             <p style='margin-bottom: 50px;'>
-                In your age group, Australian people spent $11.32 on tabacco products 
-                in average per week. This amount of money could be used to buy at least one or two picture album which is a great way to record 
-                wonderful moments with your family and friends. 
+                In your age group, Australian people spent $11.32 on tobacco products 
+                on average per week. 
+                <br>
+                The decision to quit smoking is the most critical step you can take to save money. 
+                It is never too late to quit. By quitting smoking, you can lengthen your life expectancy, 
+                save money, decrease your risk of disease, and feel healthier. Being ready and wanting to quit is 
+                the most important part. You need to decide to give yourself the most precious gift a smoker can give 
+                to him or herself – a gift of life, health, and self-esteem – by becoming a non-smoker.
             </p>
         </div>
 
         <tableau1></tableau1>
     </div>
-</div>
 
-<div>
-        
-    <div *ngIf="answer[0] && answer[1] && answer[2]">
 
-        <div *ngIf="answer[0]=='75+'">
-            <div class='sentence1'>
-                <p style='margin-bottom: 50px;'>
-                    This is the average consumer pattern of Australians whose age is between 75+.
-                </p>
+    <div>
+            
+        <div *ngIf="answer[0] && answer[1] && answer[2]">
+
+            <div *ngIf="answer[0]=='75+'">
+                <div class='sentence1'>
+                    <p style='margin-bottom: 50px;'>
+                        Below is the average consumption pattern of Australians per week whose age is over 75.
+                    </p>
+                </div>
+
+                <div class='sentence2' *ngIf="answer[1]==answer[2] && answer[2]=='Yes'">
+                    <p>
+                        In your age group, Australian people spent $11.85 on alcoholic beverages
+                        and $6.15 on tobacco products on average per week. 
+                        <br>
+                        Smoking and Drinking is a habit that can be difficult to break. Not only does it impact your health, 
+                        social status, but it can also put much financial strain on you. The relatively low cost of a single 
+                        pack of cigarettes or a bottle of alcohol conceals the enormous fortune you are spending on alcohol 
+                        and cigarette over a given period of time.
+                    </p>
+                </div>
+
+                <div class='sentence2' *ngIf="answer[1]=='No' && answer[2]=='Yes'">
+                    <p>
+                        In your age group, Australian people spent $11.85 on alcoholic beverages on average per week. 
+                        <br>
+                        Excessive drinking of alcohol can blow through the family budget, cause fights between your loved ones, 
+                        and impair the health and happiness of the people you love. It is well established that alcohol abuse can 
+                        lead to serious financial problems, but not only because of the actual money spent on alcohol. However, 
+                        because your inhibitions are lowered when you drink alcohol, you may be more likely to impulsively buy 
+                        things without thinking through the consequences of those purchases. Hence, it never too late to quit alcohol.
+                    </p>
+                </div>
+
+                <div class='sentence2' *ngIf="answer[1]=='Yes' && answer[2]=='No'">
+                    <p>
+                        In your age group, Australian people spent $6.15 on tobacco products 
+                        on average per week. 
+                        <br>
+                        The decision to quit smoking is the most critical step you can take to save money. 
+                        It is never too late to quit. By quitting smoking, you can lengthen your life expectancy, 
+                        save money, decrease your risk of disease, and feel healthier. Being ready and wanting to 
+                        quit is the most important part. You need to decide to give yourself the most precious gift a 
+                        smoker can give to him or herself – a gift of life, health, and self-esteem – by becoming a non-smoker.
+                    </p>
+                </div>
+
+                <tableau2></tableau2>
             </div>
+        </div>
 
-            <div class='sentence2' *ngIf="answer[1]==answer[2] && answer[2]=='Yes'">
-                <p>
-                    In your age group, Australian people spent $11.85 on alcoholic baverages
-                    and $6.15 on tabacco products in average per week. This amount of money could 
-                    be used to buy at least one or two picture album which is a great way to record 
-                    wonderful moments with your family and friends. 
-                </p>
-            </div>
+        <div class="tips">
+            <h1>
+                Furthermore, we also have some tips for elder people which may help saving money.
+            </h1>
 
-            <div class='sentence2' *ngIf="answer[1]=='No' && answer[2]=='Yes'">
-                <p>
-                    In your age group, Australian people spent $11.85 on alcoholic baverages in average per week. 
-                    This amount of money could be used to buy one picture album which is a great way to record 
-                    wonderful moments with your family and friends. 
-                </p>
-            </div>
-
-            <div class='sentence2' *ngIf="answer[1]=='Yes' && answer[2]=='No'">
-                <p>
-                    In your age group, Australian people spent $6.15 on tabacco products 
-                    in average per week. This amount of money could be used to buy at least one or two picture album which is a great way to record 
-                    wonderful moments with your family and friends. 
-                </p>
-            </div>
-
-            <tableau2></tableau2>
+            <ul>
+                <li>
+                    <h3>
+                        <b>
+                            Consider new living arrangements:
+                        </b>
+                        <br>
+                        As you age, and situations in life change, you may need to
+                        adjust accordingly. For example, if you currently live alone and the costs are adding up, consider
+                        alternative living arrangements such as getting a housemate or moving to a senior living community
+                        that may be more affordable than the up-keep of your own home, utilities, and caregiving,
+                        transportation, and grocery costs.
+                    </h3>
+                
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Veteran’s Discount:
+                        </b>
+                        <br>
+                        If a business doesn’t offer senior discounts, and you’re a veteran, find out if
+                        they offer veterans discounts. Those same retailers, grocery stores, and restaurants that don’t offer
+                        a senior discount may offer a percentage off of your purchase or sometimes even a freebie by
+                        showing a valid military ID.
+                    </h3>
+                
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Take advantage of senior discounts:
+                        </b>
+                        <br>
+                        One of the perks of being an older adult are senior
+                        discounts. All you have to do is ask businesses if they offer them. You can also look at a company’s
+                        website to see if they advertise any discounts. Look into retailers, restaurants, grocery stores, gyms,
+                        utility providers, auto services, hair salons, transportation and travel services, and low-cost cable TV
+                        providers that may offer seniors discounts.
+                    </h3>
+                
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Cut your transportation expenses:
+                        </b><br>
+                        For many people, not owning a car isn’t an option. However,
+                        you can save costs in other ways, such as shopping for a lower insurance rate or carpooling with
+                        other people. You might also consider moving to an area with public transportation or a high
+                        walkability score, so you don’t need a car to get to the places you need to go.
+                    </h3>
+                    
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Water:
+                        </b><br>
+                        Don’t waste money on soda and other pricy sports and energy drinks. Unless your doctor
+                        suggests otherwise, drinking water is best. Not only is it healthier, but it can also be kinder on the
+                        budget. Add lemons, limes, and berries for an extra dash of flavor.
+                    </h3>
+                    
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Shop Wisely:
+                        </b><br>
+                        Seniors can save money on shopping excursions by limiting outings to once a week.
+                        They should purchase only the most essential items and resist the urge to overspend. Better yet,
+                        they can go shopping with a friend, which saves both time and money on fuel expenses and grocery
+                        items. Plus, the opportunity for socializing is also beneficial.
+                    </h3>
+                    
+                </li>
+                <li>
+                    <h3>
+                        <b>
+                            Dine-in and save money: 
+                        </b><br>
+                        You can save money by eating food at home rather than dine out. It can
+                        be healthier to use fresh vegetables rather than frozen, but choosing to use convenience foods can
+                        save your money.
+                    </h3>               
+                </li>
+            </ul>
         </div>
     </div>
+
 </div>

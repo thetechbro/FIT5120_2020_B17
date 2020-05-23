@@ -1,17 +1,16 @@
-.small-margin {
-  margin: 8px 0;
-  height: 96vh;
-  overflow: auto;
-}
-
 .card-border {
   border: 0.80565px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   border-radius: 8px;
+  width: fit-content;
 }
 .card-content {
   padding: 8px 16px;
   min-height: 122px;
+}
+
+.padding-table {
+  padding: 8px;
 }
 
 .card-image {
@@ -30,11 +29,6 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 8px;
 }
-
-.content-padding {
-  padding: 0 16px;
-}
-
 .sticky-fab-btn {
   right: 28px;
   position: fixed;
