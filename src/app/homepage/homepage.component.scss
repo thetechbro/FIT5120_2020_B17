@@ -8,9 +8,6 @@
   align-items: center;
   text-align: center;
   background-size: cover;
-  -webkit-filter: brightness(70%);
-  filter: brightness(70%);
-  max-width: 100%;
 }
 
 .greeting1{
@@ -89,8 +86,71 @@ h3{
   background-color: #e7e7e7;
  
 }
-         
+    
 
-a{
-  text-decoration: none;;
+.img-container h3{
+  width: 400px;
+  line-height: 1.5rem;
+  margin-top: 10px;
+
+}
+
+.img-container span{
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.img-container span a{
+  text-decoration: none;
+}
+
+
+
+#intro{
+  min-width: 330px;
+}
+
+.img-container img{
+  min-width: 300px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 480px){
+  .img-container img{
+    width: 300px;
+  }
+
+  .img-container h3{
+    width: 300px;
+    line-height: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .img-container span{
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+  .greeting1{
+    font-size: 2rem;
+  }
+
+  .greeting2{
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 800px){
+
+  .container img{
+    width: 200px;
+    margin-left: 40px;
+    }
+
+   .container h3{
+      width: 250PX;
+      margin-left: 50px;
+
+    }
 }

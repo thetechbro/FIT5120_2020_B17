@@ -17,7 +17,7 @@ export class Tableau65Component implements OnInit {
     var placeholderDiv = document.getElementById('vizContainer65');
     console.log(placeholderDiv)
     // Replace this url with the url of your Tableau dashboard
-      var url = 'https://public.tableau.com/views/ConsumerPatternofGroup65-74/Dashboard1?:display_count=y&:origin=viz_share_link';
+      var url = 'https://public.tableau.com/views/ConsumerPatternofGroup65-74/1_1?:display_count=y&publish=yes&:origin=viz_share_link';
       var options = {
               hideTabs: true,
               width: "100%",

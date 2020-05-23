@@ -36,6 +36,7 @@ label{
     float: left;
     font-size: 0.8rem;
 }
+
 p {
     margin-bottom: 50px;
 }
@@ -49,25 +50,25 @@ p {
 }
 
 .sentence1{
-    min-width: 350px;
+    margin: auto;
     margin-top: 10rem;
     text-align: center;
     font-family: 'Jost', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
+    width: 75%;
     
 }
 
 .sentence2{
-    min-width: 350px;
+    width: 70%;
+    margin: auto;
     margin-top: 50px;
-    text-align: center;
-    margin-left: 20rem;
-    margin-right: 20rem;
     text-align: justify;
     font-family: 'Jost', sans-serif;
     font-size: 1.5rem;
     line-height: 2rem;
+    
 }
 
 button{
@@ -78,25 +79,42 @@ button{
 }
 
 .tips h1{
+    margin: auto;
     margin-top: 50px;
     text-align: center;
+    margin-bottom: 50px;
     font-family: 'Jost', sans-serif;
-    font-size: 26px;
+    font-size: 1.5rem;
+    width: 75%;
     font-weight: 600;
 }
 
+ul{
+    margin:0;
+    padding:0;
+    text-align: left;
+} 
 
 .tips{
+    text-align: justify;
+    width: 80%;
     margin: auto;
+}
+
+.tips b{
     margin-left: 0;
-    margin-right: 10%;
+    text-align: left;
+    font-size: 1.2rem;
+
 }
 
 .tips h3{
+    width: 100%;
     overflow:hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-family: 'Jost', sans-serif;
+    text-align: justify;
     font-size: 20px;
     line-height: 30px;
 
@@ -107,37 +125,28 @@ button{
     white-space: normal;
 }  
 
+
 .financial-tip{
     text-align: center;
 }
 
+@media screen and (max-width: 400px) {
 
-li{
-    margin-top: 5px;
-    text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: justify;
-    
-}
-
-b{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 10%;
-}
-
-
-
-@media screen and (max-width: 600px) {
+    .financial{
+        margin-top: 0;
+        width: 100%;
+        height: 15rem;
+        background-repeat: no-repeat;
+        display: flex;
+        background-size: cover ;
+      }
     .greeting{
-        margin: 0 auto;
         margin-top: 30px;
-        line-height: 1.5rem;
+        line-height: 1.2rem;
         width: 80%;
         text-align: center;
         font-family: 'Jost', sans-serif;
-        font-size: 1rem;   
+        font-size: 0.8rem;   
         font-weight: 600;
     }
     form{
@@ -151,28 +160,24 @@ b{
     }
 
     .sentence1{
+        width: 80%;
         margin-top: 5rem;
         text-align: center;
-        font-family: 'Jost', sans-serif;
         font-size: 0.8rem;
-        font-weight: 600;
+        line-height: 1.2rem;
+        font-family: 'Jost', sans-serif;
         
     }
     
     .sentence2{
+        width: 80%;
         margin-top: 50px;
         text-align: center;
-        margin-left: 200px;
-        margin-right: 200px;
         text-align: justify;
         font-family: 'Jost', sans-serif;
-        font-size: 0.6rem;
-        line-height: 2rem;
+        font-size: 0.7rem;
+        line-height: 1rem;
     }
 
-
-}
-
-@media only screen and (max-width: 480px){
 
 }

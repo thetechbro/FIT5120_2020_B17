@@ -1,39 +1,34 @@
-<mat-toolbar class="sticky-toolbar">
-  <mat-toolbar-row class="app-header">
+<nav class="navbar navbar-expand-lg navbar-light">
 
-    <span class="display-flex">
-      <a routerLink='/Home'>
-        <img alt="Logo" class="small-margin-right" src="../assets/toolbar_logo.png" width="60" height="60">
-        <span class="inline-flex-center" style="color:orangered; margin-top: 0.9rem;" >GoldenStick</span>
-      </a>  
-    </span>
+  <a class="navbar-brand"  routerLink='/Home'>Golden Stick</a>
+  <button class="btn btn-secondary dropdown-toggle navbar-toggler" 
+    type="button"  
+    data-toggle="dropdown" 
+    data-target="#navbarTogglerDemo01" 
+    aria-controls="navbarTogglerDemo01"
+    aria-label="Toggle navigation"
+    aria-expanded="false">
 
-    
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/Home'>Home <span class="sr-only">(current)</span></ a>
+        </li>
 
-    <span>
-      <a mat-button routerLinkActive="color-white" routerLink='/Home'>Home Page</a>
-    </span>
-    <span>
-      <a mat-button routerLinkActive="color-white" routerLink='/aged-care-search'>Find Aged Care</a>
-    </span>
-    <span>
-      <a mat-button routerLinkActive="color-white" routerLink='/financial'>Financial Tip</a>
-    </span>
-
-
-  </mat-toolbar-row>
-
-  <!-- <mat-toolbar-row [style.height.px]="5" [style.padding.px]="10">
-    <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
-  </mat-toolbar-row>
-
-  <mat-toolbar-row [style.height.px]="1" [style.padding.px]="0">
-    <mat-divider [style.width.%]="100"></mat-divider>
-  </mat-toolbar-row> -->
-
-</mat-toolbar>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/aged-care-search'>Find Aged Care</ a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/financial'>Financial</ a>
+          </li>
+      </ul>
+      
+    </div>
+</nav>
 
 <section class="container-margin-main">
   <router-outlet></router-outlet>
