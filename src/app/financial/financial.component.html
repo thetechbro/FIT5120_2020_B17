@@ -2,13 +2,13 @@
 
 <div class='greeting'>
     <p>
-        We have something want to show you, before that, could you answer a few questions for us ?
+        We have something to show you, before that, could you answer a few questions for us ?
     </p>
 </div>
 
 <form #f='ngForm'>
     <div class="form-group">
-        <label for='ageGroups'>Which Age Group Are you in ?</label>
+        <label for='ageGroups'>Which age group are you in ?</label>
         <select ngModel name='ageGroup' id='ageGroup' class='form-control'>
             <option value=''></option>
             <option *ngFor='let ageGroup of ageGroups' [value]='ageGroup.group'>{{ageGroup.group}}</option>
