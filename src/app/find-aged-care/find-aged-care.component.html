@@ -11,7 +11,7 @@
 
 <div class="centre">Features</div>
 
-<div class="img-container">
+<div class="img-container" style="font-family: 'Jost', sans-serif;">
 
   <div>
     <img src="../../assets/img1.jpg" width="140" height="140">
@@ -35,16 +35,16 @@
   </div>
 </div>
 
-<div class="find-container">
-  <div class="centre">Why Choose Us ?</div>
-  <div style="text-align: center; font-size: 1.2rem;">We care for our elderly because they deserve the best !</div>
-  <div style="text-align: center; margin-top: 3%;">Enter Postcode and Select Organisation to proceed</div>
+<div class="find-container" >
+  <div class="centre" style="font-family: 'Jost', sans-serif;" >Why Choose Us ?</div>
+  <div style="text-align: center; font-size: 1.2rem; font-family: 'Jost', sans-serif;">We care for our elderly because they deserve the best !</div>
+  <div style="text-align: center; margin-top: 3%; font-family: 'Jost', sans-serif;">Enter Postcode and Select Organisation to proceed</div>
 </div>
 
 <form [formGroup]="searchPincodeForm">
   <div class="flexy-grid">
     <mat-form-field appearance="outline" class="field">
-      <mat-label>Enter Postcode</mat-label>
+      <mat-label style="font-family: 'Jost', sans-serif;" >Enter Postcode</mat-label>
       <input matInput formControlName="zipcode" placeholder="Enter Postcode">
 
       <button mat-button matPrefix mat-icon-button aria-label="Search">
