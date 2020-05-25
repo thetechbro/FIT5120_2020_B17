@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand"  routerLink='/Home' style="font-size: 1.6rem; margin-top: 0.3rem;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <a class="navbar-brand"  routerLink='/Home' style="font-size: 1.6rem; margin-top: 0.3rem; margin-right: 10rem;">
     <img id="homelogo" src="../assets/toolbar_logo.png" style='height:3.5rem;width:3.5rem;'>
     GoldenStick
   </a>
@@ -17,16 +17,13 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        
         <li class="nav-item">
-          <a class="nav-link" routerLink='/Home' >Home <span class="sr-only">(current)</span></ a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/aged-care-search' style="white-space: nowrap" >Find Aged Care</ a>
+          <a class="mat-button" routerLinkActive="color-orange" routerLink='/aged-care-search' style="white-space: nowrap;" >Find Aged Care</ a>
         </li>
         
         <li class="nav-item">
-            <a class="nav-link" routerLink='/financial'>Financial Planning</ a>
+            <a class="mat-button" routerLinkActive="color-orange" routerLink='/financial' style="white-space: nowrap;">Financial Planning</ a>
           </li>
       </ul>
       

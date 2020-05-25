@@ -8,16 +8,15 @@
 }
 
 .mat-button{
-  height:20px !important;
-  width:30px !important;
-  font-size:20px !important;
-  margin-left:-100px;
+  height:2rem;
+  width:3rem;
+  font-size:1.6rem ;
   display: table-cell;
-  line-height: 80px;
+  font-family: 'Jost', sans-serif;
 }
 
 .mat-button:hover{
-  color: white !important;  
+  color: white;
 }
 
 
@@ -51,7 +50,7 @@ a{
 
 .navbar{
   width: 100%;
-  background-color: rgba(199, 199, 197, 0.7);
+  background-color: rgba(122, 122, 121, 0.7);
   margin-bottom: 1rem;
 
 }
@@ -59,11 +58,10 @@ a{
 .navbar-light  {
   border-color: rgba(143, 139, 139, 0.1);
   position: absolute;
-
 }
 
-.nav-item{  
-  margin-right: 8rem;
+.nav-item{
+  margin-right: 10rem;
   }
 
 @media only screen and (max-width: 480px){
