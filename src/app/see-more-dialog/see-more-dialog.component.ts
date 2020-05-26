@@ -26,6 +26,9 @@ export class SeeMoreDialogComponent implements OnInit {
   getUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps/embed/v1/place?key=${environment.googleMapAPI}&q=${encodeURI(this.data.item.AGED_CARE_NAME)}&center=${Number(this.data.item.Latitude)},${Number(this.data.item.Longitude)}`);
   }
+  getPaticularNeed(item) {
+    return item ? item.replace('[', '').replace(']', '').replace(/'/g, '') : '-';
+  }
   ngOnInit(): void {
     // console.log(this.data.item);
     if (this.data && this.data.item && this.data.item.CLOSEST_Facility) {

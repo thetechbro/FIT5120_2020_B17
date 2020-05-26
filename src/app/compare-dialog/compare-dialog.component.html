@@ -97,7 +97,7 @@
     <div class="mat-title">{{'PARTICULAR NEED' | titlecase}}</div>
     <div class="card-grid">
       <div *ngFor="let item of data.compareItems" class="mat-body-2 content-padding">
-        {{item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
+        {{getPaticularNeed(item.PARTICULAR_NEED_SERVICES)}}</div>
     </div>
     <div class='spacer-height'></div>
   </div>

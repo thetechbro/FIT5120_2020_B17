@@ -18,6 +18,10 @@ export class CompareDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getPaticularNeed(item) {
+    return item ? item.replace('[', '').replace(']', '').replace(/'/g, '') : '-';
+  }
+
   /**
    * scrollTop is for scroling to top
    */

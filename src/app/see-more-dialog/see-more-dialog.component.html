@@ -138,7 +138,7 @@
       <div class="mat-body-2">{{data.item?.SERVICE_TYPE|| '-'}}</div>
       <div class='spacer-height'></div>
       <div class="mat-title">{{'PARTICULAR NEED' | titlecase}}</div>
-      <div class="mat-body-2">{{data.item?.PARTICULAR_NEED_SERVICES|| '-'}}</div>
+      <div class="mat-body-2">{{getPaticularNeed(data.item?.PARTICULAR_NEED_SERVICES)}}</div>
       <div class='spacer-height'></div>
       <button mat-stroked-button (click)="isOpenFacility = false">See Less</button>
     </ng-container>
