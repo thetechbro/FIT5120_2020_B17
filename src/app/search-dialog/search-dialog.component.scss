@@ -36,6 +36,12 @@
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   grid-gap: 8px;
 }
+.container-margin-main{
+  max-width: 1000px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-bottom: 16px;
+}
 
 @media (max-width: 800px) {
   .card-grid {
