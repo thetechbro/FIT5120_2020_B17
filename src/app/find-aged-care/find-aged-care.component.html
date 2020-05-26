@@ -5,7 +5,7 @@
 </h2>
 
 <h1 class="mat-h1 aged-headline" >
-  Our website helps elderly people find long-term accommodation so that 
+  Our website helps elderly people find long-term accommodation so that
   they can lead and maintain a quality life for themselves
 </h1>
 
@@ -50,9 +50,12 @@
       <button mat-button matPrefix mat-icon-button aria-label="Search">
         <mat-icon fontSet="material-icons-outlined">search</mat-icon>
       </button>
-    
+
       <mat-error *ngIf="searchPincodeForm.controls.zipcode?.errors?.invalid">
         Please enter valid Postcode
+      </mat-error>
+       <mat-error *ngIf="searchPincodeForm.controls.zipcode?.errors?.notExist">
+        Postcode not available
       </mat-error>
     </mat-form-field>
 
@@ -74,7 +77,7 @@
   <!-- <mat-error class="mat-subheading-1">{{errorMessage$ | async}}</mat-error> -->
   <!-- <div class="small-spacer-height"></div> -->
   <div class="btn-container">
-    <button mat-stroked-button type="submit" color="primary" 
+    <button mat-stroked-button type="submit" color="primary"
       (click)="getHome(searchPincodeForm.controls.zipcode.value, searchPincodeForm.controls.organizationtype.value)">Search Now
     </button>
   </div>
